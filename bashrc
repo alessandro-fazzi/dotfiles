@@ -95,5 +95,10 @@ export HISTFILESIZE=10000
 export HISTCONTROL="ignoreboth"
 export EDITOR="vim"
 
+## Lampp
+export WP_CLI_PHP=/opt/lampp/bin/php
+export PATH=$PATH:/opt/lampp/bin
+
+
 [[ -s "$HOME/.bunctionsh" ]] && source "$HOME/.bunctionsh"
 
