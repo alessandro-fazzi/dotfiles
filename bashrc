@@ -23,7 +23,8 @@ function is_vim_running {
 
 PROMPT_INFO="${WHITE}[\A] ${GREEN}\u${WHITE}(${GREEN}\h${WHITE})${NC} ${BLUE}\w"
 PROMPT_RUBY="[\$(rvm-prompt)]"
-PROMPT_GIT="${YELLOW}\$(__git_ps1)"
+#PROMPT_GIT="${YELLOW}\$(__git_ps1)"
+PROMPT_GIT="\$(psgit_function)"
 PROMPT_FOOTER="\n\$(is_vim_running && echo \"${RED}\" || echo \"${BLACK}\")↳ ${GREEN}\$ ${NC}"
 
 PS1="\n${PROMPT_INFO} ${PROMPT_RUBY} ${PROMPT_GIT} ${PROMPT_FOOTER}"
@@ -93,25 +94,5 @@ export HISTFILESIZE=10000
 export HISTCONTROL="ignoreboth"
 export EDITOR="vim"
 
-## Extract files: depends on zip, unrar and p7zip
-function ex {
-    if [ -f $1 ] ; then
-      case $1 in
-        *.tar.bz2)   tar xjf $1     ;;
-        *.tar.gz)    tar xzf $1     ;;
-        *.bz2)       bunzip2 $1     ;;
-        *.rar)       unrar e $1     ;;
-        *.gz)        gunzip $1      ;;
-        *.tar)       tar xf $1      ;;
-        *.tbz2)      tar xjf $1     ;;
-        *.tgz)       tar xzf $1     ;;
-        *.zip)       unzip $1       ;;
-        *.Z)         uncompress $1  ;;
-        *.7z)        7z x $1        ;;
-        *)     echo "'$1' cannot be extracted via ex()" ;;
-         esac
-     else
-         echo "'$1' is not a valid file"
-     fi
-}
+[[ -s "$HOME/.bunctionsh" ]] && source "$HOME/.bunctionsh"
 
