@@ -1,6 +1,6 @@
-# [user]
-#  name = Nome Cognome
-#  email = nome.cognome@welaika.com
+[user]
+  name = Alessandro Fazzi
+  email = alessandro.fazzi@welaika.com
 
 [alias]
   # shortcuts
