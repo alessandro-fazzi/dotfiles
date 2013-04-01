@@ -70,6 +70,7 @@ shopt -s cmdhist        # Save multi-line commands in history as single line.
 shopt -s dotglob        # Include dotfile in path-name expansions.
 shopt -s histappend     # Append to history rather than overwrite.
 shopt -s nocaseglob     # Pathname expansion will be treated as case-insensitive.
+shopt -s extglob        # Extended globbing expansion (see man bash -> Pathname Expansion - Pattern Matching)
 
 ## Bash completion
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
