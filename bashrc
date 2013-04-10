@@ -104,3 +104,9 @@ export PATH=$PATH:/opt/lampp/bin
 
 [[ -s "$HOME/.bunctionsh" ]] && source "$HOME/.bunctionsh"
 
+
+# Personal functions definition
+if [[ -f ~/.bunctionsh ]]; then
+  source ~/.bunctionsh
+fi
+
