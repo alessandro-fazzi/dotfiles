@@ -48,6 +48,8 @@ alias ports='netstat -tulanp'
 alias apache2_restart='sudo service apache2 restart'
 alias mysql_restart='sudo service mysql restart'
 
+alias hk='heroku'
+
 # Expand aliases with sudo too
 alias sudo='sudo '
 
