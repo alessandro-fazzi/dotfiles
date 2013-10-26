@@ -22,12 +22,14 @@ function is_vim_running {
 }
 
 PROMPT_INFO="${WHITE}[\A] ${GREEN}\u${WHITE}(${GREEN}\h${WHITE})${NC} ${BLUE}\w"
-PROMPT_RUBY="[\$(rvm-prompt)]"
+PROMPT_RUBY="[\$( rvm-prompt u ' ' g )]"
 #PROMPT_GIT="${YELLOW}\$(__git_ps1)"
 PROMPT_GIT="\$(psgit_function)"
 PROMPT_FOOTER="\n\$(is_vim_running && echo \"${RED}\" || echo \"${BLACK}\")↳ ${GREEN}\$ ${NC}"
+BASH_STATUS='`if [[ $? == 0 ]]; then echo "\[\033[01;32m\]✔"; else echo "\[\033[01;31m\]✘"; fi`'
+PROMPT_DIRTRIM=3
 
-PS1="\n${PROMPT_INFO} ${PROMPT_RUBY} ${PROMPT_GIT} ${PROMPT_FOOTER}"
+PS1="\n${BASH_STATUS} ${PROMPT_INFO} ${PROMPT_RUBY} ${PROMPT_GIT} ${PROMPT_FOOTER}"
 
 ## Aliases
 
