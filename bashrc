@@ -21,7 +21,7 @@ function is_vim_running {
   jobs | grep -o 'vim' &> /dev/null
 }
 
-PROMPT_INFO="${WHITE}[\A] ${GREEN}\u${WHITE}(${GREEN}\h${WHITE})${NC} ${BLUE}\w"
+PROMPT_INFO="${BLUE}\w"
 PROMPT_RUBY="[\$( rvm-prompt u ' ' g )]"
 #PROMPT_GIT="${YELLOW}\$(__git_ps1)"
 PROMPT_GIT="\$(psgit_function)"
