@@ -1,0 +1,21 @@
+# GiT Aliases
+alias gcl='git clone'
+alias ga='git add'
+alias gap='git add -p'
+alias gall='git add .'
+alias gus='git reset HEAD'
+alias gm="git merge"
+alias g='git'
+alias gst='git status'
+alias gss='git status -s'
+alias gdv='git diff -w "$@" | vim -R -'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gcm='git commit -v -m'
+alias gci='git commit --interactive'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gcp='git cherry-pick'
+alias gco='git checkout'
+alias gdel='git branch -D'
+alias gw="git whatchanged"
