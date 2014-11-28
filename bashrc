@@ -124,3 +124,9 @@ export PATH="/usr/local/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### Fix some problems w/ iTerm2 and binding.pry
+export LC_CTYPE=it_IT.UTF-8
+export LANG=it_IT.UTF-8
+export LC_ALL=it_IT.UTF-8
+
