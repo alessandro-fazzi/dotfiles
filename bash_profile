@@ -7,4 +7,5 @@ if [ -f /usr/local/etc/bash_completion.d/wp-completion.bash ]; then
 fi
 
 source $HOME/.bashrc
+source $HOME/.profile
 export PATH=/usr/local/bin:$PATH
