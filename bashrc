@@ -85,6 +85,14 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
 fi
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+if [ -f /usr/local/etc/bash_completion.d/wp-completion.bash ]; then
+  . /usr/local/etc/bash_completion.d/wp-completion.bash
+fi
+
 ## Colored manpages
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -94,31 +102,20 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-## RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-alias rgs='rvm gemset'
-
 ## Exports
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTCONTROL="ignoreboth"
 export EDITOR="vim"
 
-## Lampp
-#export WP_CLI_PHP=/opt/lampp/bin/php
-#export PATH=$PATH:/opt/lampp/bin
-
-
+## Personal functions definition
 [[ -s "$HOME/.bunctionsh" ]] && source "$HOME/.bunctionsh"
 
-
-# Personal functions definition
 if [[ -f ~/.bunctionsh ]]; then
   source ~/.bunctionsh
 fi
 
 
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
