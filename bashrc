@@ -22,7 +22,7 @@ function is_vim_running {
 }
 
 PROMPT_INFO="${BLUE}\w"
-PROMPT_RUBY="[\$( rvm-prompt u ' ' g )]"
+# PROMPT_RUBY="[\$( rvm-prompt u ' ' g )]"
 # PROMPT_GIT="${YELLOW}\$(__git_ps1)"
 PROMPT_GIT="\$(psgit_function)"
 PROMPT_FOOTER="\n\$(is_vim_running && echo \"${RED}\" || echo \"${BLACK}\")↳ ${GREEN}\$ ${NC}"
