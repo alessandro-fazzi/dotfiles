@@ -127,3 +127,8 @@ export LC_CTYPE=it_IT.UTF-8
 export LANG=it_IT.UTF-8
 export LC_ALL=it_IT.UTF-8
 
+## rbenv
+## rbenv shims autocompletion
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+## rbenv PATH
+export PATH="./bin:$PATH"
