@@ -12,6 +12,7 @@ gitconfig
 gitignore_global
 inputrc
 rvmrc
+vimperatorrc
 )
 
 function warn() {
