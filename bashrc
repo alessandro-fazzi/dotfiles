@@ -132,3 +132,7 @@ export LC_ALL=it_IT.UTF-8
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ## rbenv PATH
 export PATH="./bin:$PATH"
+
+#node_modules
+export PATH="./node_modules/.bin:$PATH"
+
