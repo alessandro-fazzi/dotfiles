@@ -136,3 +136,6 @@ export PATH="./bin:$PATH"
 #node_modules
 export PATH="./node_modules/.bin:$PATH"
 
+#postgres.app executables
+PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
+
