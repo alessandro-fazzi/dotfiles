@@ -18,15 +18,16 @@
 		"*.scssc",
 		"*.sassc"
 	],
+	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
 	"draw_white_space": "selection",
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "Ubuntu Mono",
 	"font_size": 17,
+	"highlight_line": true,
+	"highlight_modified_tab": true,
 	"ignored_packages":
 	[
-		"Tomorrow Color Schemes",
-		"SublimeGit"
 	],
 	"indent_guide_options":
 	[
@@ -40,8 +41,5 @@
 	"tab_size": 2,
 	"theme": "Spacegray.sublime-theme",
 	"trim_trailing_white_space_on_save": true,
-	"word_wrap": true,
-	"highlight_modified_tab": true,
-	"highlight_line": true,
-	"bold_folder_labels": true
+	"word_wrap": true
 }
