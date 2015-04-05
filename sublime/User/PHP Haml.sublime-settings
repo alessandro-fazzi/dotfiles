@@ -1,0 +1,8 @@
+{
+	"extensions":
+	[
+		"haml"
+	],
+	"tab_seize": 2,
+	"translate_tabs_to_spaces": true
+}

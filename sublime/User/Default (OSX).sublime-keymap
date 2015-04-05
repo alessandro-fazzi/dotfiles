@@ -1,0 +1,17 @@
+[
+	{ "keys": ["ctrl+back_slash"], "command": "toggle_comment", "args": { "block": false } },
+
+	{ "keys": ["super+k", "super+r"], "command": "run_single_ruby_test",
+    "context": [ { "key": "selector", "operator": "equal",
+                  "operand": "source.ruby, source.rspec, text.gherkin.feature"
+              } ]
+  },
+
+  { "keys": ["super+k", "super+t"], "command": "run_all_ruby_test",
+      "context": [ { "key": "selector", "operator": "equal",
+        "operand": "source.ruby, source.rspec, text.gherkin.feature"
+                } ]
+  },
+
+  { "keys": ["super+shift+r"], "command": "goto_symbol_in_project" }
+]

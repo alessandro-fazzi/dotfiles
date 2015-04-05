@@ -1,0 +1,47 @@
+{
+	"auto_find_in_selection": true,
+	"binary_file_patterns":
+	[
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip",
+		"*.scssc",
+		"*.sassc"
+	],
+	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"draw_white_space": "selection",
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Ubuntu Mono",
+	"font_size": 17,
+	"ignored_packages":
+	[
+		"Tomorrow Color Schemes",
+		"SublimeGit"
+	],
+	"indent_guide_options":
+	[
+		"draw_active"
+	],
+	"rulers":
+	[
+		100
+	],
+	"show_encoding": true,
+	"tab_size": 2,
+	"theme": "Spacegray.sublime-theme",
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": true,
+	"highlight_modified_tab": true,
+	"highlight_line": true,
+	"bold_folder_labels": true
+}

@@ -1,0 +1,45 @@
+{
+	"auto_upgrade_last_run": null,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"Better CoffeeScript",
+		"CoffeeScript",
+		"Diffy",
+		"DocBlockr",
+		"EditorConfig",
+		"EncodingHelper",
+		"Fizzy Theme",
+		"Git",
+		"GitGutter",
+		"HTML-CSS-JS Prettify",
+		"Jade",
+		"jQuery",
+		"Local History",
+		"Markdown Preview",
+		"Open Folder",
+		"Package Control",
+		"Path Tools",
+		"PHP Haml",
+		"Pretty JSON",
+		"Ruby Hash Converter",
+		"Ruby Slim",
+		"RubyTest",
+		"Stylus",
+		"SublimeGit",
+		"SublimeLinter",
+		"SublimeLinter-coffee",
+		"SublimeLinter-haml",
+		"SublimeLinter-rubocop",
+		"SublimeLinter-xmllint",
+		"Syntax Highlighting for Sass",
+		"Terminal",
+		"Theme - Spacegray",
+		"Tomorrow Color Schemes",
+		"Wordless",
+		"WordPress"
+	]
+}
