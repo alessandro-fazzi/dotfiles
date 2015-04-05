@@ -15,6 +15,9 @@ rvmrc
 vimperatorrc
 )
 
+SUBLIME_FILES="$(pwd)/sublime/User"
+SUBLIME_DEST_DIR="${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
+
 function warn() {
   echo "$(tput bold)$(tput setaf 3)  *** ${1}$(tput sgr0)"
 }
@@ -43,6 +46,30 @@ function backup(){
 	done
 }
 
+function backup_sublime(){
+	[[ -d "$SUBLIME_DEST_DIR" && ! -L "$SUBLIME_DEST_DIR" ]] || return;
+	backup="${BACKUP_DIR}/sublime/User"
+	if [[ -d "$backup" ]]; then
+		warn "$backup already exists"
+	else
+		mv "$SUBLIME_DEST_DIR" ${backup}
+	fi
+}
+
+function link_sublime(){
+	if [[ -d "$SUBLIME_DEST_DIR" ]]; then
+		warn "${SUBLIME_DEST_DIR} already exists"
+	else
+		ln -s $SUBLIME_FILES "${SUBLIME_DEST_DIR}"
+	fi
+
+}
+
+function sublime(){
+	backup_sublime
+	link_sublime
+}
+
 function backup_dir(){
 	[[ -d $BACKUP_DIR ]] || mkdir -p $BACKUP_DIR
 }
@@ -52,5 +79,6 @@ function backup_dir(){
 backup_dir
 backup
 link
+sublime
 
 ############################################
