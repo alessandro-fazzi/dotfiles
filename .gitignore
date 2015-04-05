@@ -1,1 +1,4 @@
 backup/
+*.last-run
+*.cache
+.DS-store
