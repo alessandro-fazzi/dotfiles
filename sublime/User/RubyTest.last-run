@@ -1,4 +1,0 @@
-{
-	"last_test_run": "ruby -Itest test/unit/contact_test.rb -n 'test_person_to_company_conversion'",
-	"last_test_working_dir": "/Users/fuzzy/dev/concierge"
-}
