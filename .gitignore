@@ -1,4 +1,5 @@
 backup/
 *.last-run
 *.cache
-.DS-store
+.DS_store
+.SublimeREPLHistory
