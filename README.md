@@ -5,11 +5,12 @@ weLaika's dotfiles
 
 Prerequisites: ruby, rvm
 
-1. Fork 
-2. Clone your fork into ".dotfiles":  
+1. Fork
+2. Clone your fork into ".dotfiles":
    `git clone https://github.com/YOURNAME/dotfiles.git ~/.dotfiles`
-3. Install:  
-   `cd ~/.dotfiles && bash install.sh`
+3. Install:
+  `cd ~/.dotfiles && bash install.sh`. Supply `--sublime` flag in order
+  to install sublime files
 4. Update `[user]` section in `gitconfig` file
 5. Edit to suit your needs
 
@@ -40,4 +41,39 @@ directory and will install in your home symlinks to the dotfiles in the
   - history search of commands: type ls, press `↑` and browse through commands
     starting with ls :)
 * rvmrc disables rvms noisy messages and whiny confermation questions
+* sublime text packages and configuration. Sublime must be previously installed
+  and the package control plugin [already installed](https://packagecontrol.io/installation).
+  At the moment will be installed the following packages:
 
+      ├── Bats.sublime-settings
+      ├── Bats.tmLanguage
+      ├── Default\ (Linux).sublime-keymap
+      ├── Default\ (OSX).sublime-keymap
+      ├── GitGutter.sublime-settings
+      ├── Glue.sublime-settings
+      ├── JavaScript\ (Rails).sublime-settings
+      ├── Makefile.sublime-settings
+      ├── MarkdownPreview.sublime-settings
+      ├── Monokai.tmTheme
+      ├── PHP\ Haml.sublime-settings
+      ├── PHP.sublime-settings
+      ├── Package\ Control.ca-bundle
+      ├── Package\ Control.ca-list
+      ├── Package\ Control.merged-ca-bundle
+      ├── Package\ Control.sublime-settings
+      ├── Package\ Control.system-ca-bundle
+      ├── Package\ Control.user-ca-bundle
+      ├── Preferences.sublime-settings
+      ├── Ruby\ Haml.sublime-settings
+      ├── Ruby\ Slim.sublime-settings
+      ├── Ruby.sublime-settings
+      ├── RubyTest.last-run
+      ├── RubyTest.sublime-settings
+      ├── Sass.sublime-settings
+      ├── Shell-Unix-Generic.sublime-settings
+      ├── SublimeLinter
+      │   └── Monokai\ (SL).tmTheme
+      ├── SublimeLinter.sublime-settings
+      ├── SublimeREPL.sublime-settings
+      ├── Terminal.sublime-settings
+      └── YAML.sublime-settings

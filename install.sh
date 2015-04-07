@@ -44,7 +44,7 @@ function backup(){
 }
 
 function sublime(){
-	[[ -f install_sublime.sh ]] || return;
+	[[ -f install_sublime.sh && ${BASH_ARGV[0]} == '--sublime' ]] || return;
 
 	. install_sublime.sh
 }
