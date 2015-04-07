@@ -1,5 +1,6 @@
 backup/
-*.last-run
-*.cache
 .DS_store
 .SublimeREPLHistory
+sublime/User/*
+!sublime/User/*.sublime-keymap
+!sublime/User/*.sublime-settings
