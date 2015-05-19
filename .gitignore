@@ -1,6 +1,9 @@
 backup/
 .DS_store
 .SublimeREPLHistory
-sublime/User/*
-!sublime/User/*.sublime-keymap
-!sublime/User/*.sublime-settings
+*.last-run
+Package Control.ca-list
+*ca-bundle
+Package Control.system-ca-bundle
+Package Control.cache/
+Package Control.ca-certs/
