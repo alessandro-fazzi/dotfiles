@@ -32,6 +32,7 @@
 		"SublimeLinter",
 		"SublimeLinter-coffee",
 		"SublimeLinter-haml",
+		"SublimeLinter-json",
 		"SublimeLinter-rubocop",
 		"SublimeLinter-xmllint",
 		"Syntax Highlighting for Sass",
