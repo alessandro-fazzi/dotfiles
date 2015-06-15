@@ -31,6 +31,7 @@
 		"Stylus",
 		"SublimeLinter",
 		"SublimeLinter-coffee",
+		"SublimeLinter-contrib-scss-lint",
 		"SublimeLinter-haml",
 		"SublimeLinter-json",
 		"SublimeLinter-rubocop",
