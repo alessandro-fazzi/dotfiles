@@ -46,7 +46,9 @@
         "passive_warnings": false,
         "paths": {
             "linux": [],
-            "osx": [],
+            "osx": [
+                "/Users/fuzzy/.rbenv/shims"
+            ],
             "windows": []
         },
         "python_paths": {
