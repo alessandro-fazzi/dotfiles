@@ -1,0 +1,11 @@
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 100
+
+Style/StringLiterals:
+  EnforcedStyle: e_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes

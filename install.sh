@@ -13,6 +13,7 @@ gitignore_global
 inputrc
 rvmrc
 vimperatorrc
+rubocop.yml
 )
 
 function warn() {
