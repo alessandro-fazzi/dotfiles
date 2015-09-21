@@ -4,8 +4,9 @@ Style/Documentation:
 Metrics/LineLength:
   Max: 100
 
+StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
 Style/StringLiterals:
-  EnforcedStyle: e_quotes
-  SupportedStyles:
-    - single_quotes
-    - double_quotes
+  Enabled: false
+
