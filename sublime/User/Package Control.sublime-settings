@@ -33,6 +33,7 @@
 		"SublimeLinter-contrib-scss-lint",
 		"SublimeLinter-haml",
 		"SublimeLinter-json",
+		"SublimeLinter-php",
 		"SublimeLinter-rubocop",
 		"SublimeLinter-xmllint",
 		"Syntax Highlighting for Sass",
