@@ -50,6 +50,10 @@ function sublime(){
 	. install_sublime.sh
 }
 
+function fish(){
+	warn 'Fish dotfiles not yet implemented. Do it!'
+}
+
 function backup_dir(){
 	[[ -d $BACKUP_DIR ]] || mkdir -p $BACKUP_DIR
 }
@@ -60,5 +64,6 @@ backup_dir
 backup
 link
 sublime
+fish
 
 ############################################
