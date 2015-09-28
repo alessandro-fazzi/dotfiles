@@ -1,6 +1,7 @@
-theme default
-theme coffeeandcode
 package rbenv
-theme zish
-theme fishface
+package z
 theme clearance
+theme coffeeandcode
+theme default
+theme fishface
+theme zish
