@@ -44,12 +44,6 @@ function backup(){
 	done
 }
 
-function sublime(){
-	[[ -f install_sublime.sh && ${BASH_ARGV[0]} == '--sublime' ]] || return;
-
-	. install_sublime.sh
-}
-
 function fish(){
 	warn 'Fish dotfiles not yet implemented. Do it!'
 }
@@ -63,7 +57,6 @@ function backup_dir(){
 backup_dir
 backup
 link
-sublime
 fish
 
 ############################################
