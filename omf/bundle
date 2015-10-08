@@ -1,4 +1,5 @@
 package brew
+package bundler
 package rbenv
 package z
 theme clearance
