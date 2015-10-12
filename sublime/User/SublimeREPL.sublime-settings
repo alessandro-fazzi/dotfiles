@@ -1,6 +1,0 @@
-{
-	"default_extend_env": {
-  	"PATH": "{HOME}/.rbenv/shims:{PATH}",
-  	"GEM_PATH": "{HOME}/.rbenv/shims"
-  }
-}
