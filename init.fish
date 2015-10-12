@@ -23,7 +23,7 @@ alias du 'du -hc'
 alias lr 'ls -lhAFt'
 
 function ports
-  netstat -tulanp
+  lsof -i -Pn | grep -i "listen"
 end
 
 alias hk 'heroku'
