@@ -3,7 +3,4 @@ package bundler
 package rbenv
 package z
 theme clearance
-theme coffeeandcode
 theme default
-theme fishface
-theme zish
