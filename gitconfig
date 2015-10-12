@@ -11,6 +11,26 @@
   addp = add -p .
   st = status
   ss = status --short
+  gcl = git clone
+  ga = git add
+  gap = git add -p
+  gall = git add .
+  gus = git reset HEAD
+  gm = git merge
+  g = git
+  gst = git status
+  gss = git status -s
+  gdv = git diff -w "$@" | vim -R -
+  gc = git commit -v
+  gca = git commit -v -a
+  gcm = git commit -v -m
+  gci = git commit --interactive
+  gb = git branch
+  gba = git branch -a
+  gcp = git cherry-pick
+  gco = git checkout
+  gdel = git branch -D
+  gw = git whatchanged
 
   # info
   fame = shortlog -s --
@@ -44,7 +64,7 @@
   t  = log --oneline --decorate --graph --branches --remotes -20 --pretty=format:'%C(yellow)%h%C(red bold)%d %Creset%s %C(green)(%ar) %C(cyan)<%cn>' --date=relative
 
   # list aliases
-  al = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' && tail -n +2 ~/.gitaliases | colrm 1 6
+  al = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
 
   # tag
   tags = tag

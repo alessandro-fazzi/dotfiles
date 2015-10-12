@@ -40,9 +40,6 @@ alias chown 'chown'
 alias chmod 'chmod'
 alias chgrp 'chgrp'
 
-# Bash aliases
-source ~/.gitaliases
-
 ## Exports
 set --export HISTSIZE 10000
 set --export HISTFILESIZE 10000
