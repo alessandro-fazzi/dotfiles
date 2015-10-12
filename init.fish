@@ -1,13 +1,3 @@
-## Prompt
-# function fish_prompt
-#     set_color $fish_color_cwd
-#     echo -n (prompt_pwd)
-#     set_color $fish_color_cwd
-#     git-radar --fish -fetch
-#     set_color normal
-#     echo -n ' > '
-# end
-
 function rbenv_prompt
   set_color 666
   echo -n "[ruby "(rbenv version | sed -e 's/ .*//')"]"
