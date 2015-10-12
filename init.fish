@@ -20,10 +20,7 @@ alias la 'ls -lhAFG'
 alias mkdir 'mkdir -p'
 alias df 'df -h'
 alias du 'du -hc'
-
-function recent
-  ls -lhAFt
-end
+alias lr 'ls -lhAFt'
 
 function ports
   netstat -tulanp
