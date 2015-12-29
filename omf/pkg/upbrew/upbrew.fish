@@ -20,7 +20,7 @@ function upbrew -d "Upgrade brew and brew-cask packages and clean 'open with' me
   end
 
   brew cleanup
-  brew-cask cleanup
+  brew cask cleanup
 
   /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user
   killall Finder
