@@ -16,7 +16,7 @@ function upbrew -d "Upgrade brew and brew-cask packages and clean 'open with' me
   brew upgrade
 
   for app in (brew cask list)
-    brew cask install --force $app
+    brew cask install $app
   end
 
   brew cleanup
