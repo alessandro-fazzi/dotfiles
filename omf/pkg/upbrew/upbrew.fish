@@ -41,6 +41,8 @@ function upbrew_delete_old_brew_casks -d "Delete older-than-the-last-installed-v
       rm -rf "$cask/$old_cask"
     end
   end
+
+  prevd
 end
 
 function uninstall --on-event uninstall_upbrew
