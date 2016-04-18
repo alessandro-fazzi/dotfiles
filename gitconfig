@@ -11,6 +11,7 @@
   addp = add -p .
   st = status
   ss = status --short
+  pf = push --force-with-lease
   gcl = git clone
   ga = git add
   gap = git add -p
