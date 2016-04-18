@@ -59,7 +59,7 @@ set --export HISTFILESIZE 10000
 set --export HISTCONTROL "ignoreboth"
 set --export EDITOR "vim"
 
-set PATH /usr/local/mysql/bin $PATH
+set PATH /usr/local/opt/mysql55/bin $PATH
 
 ### Added by the Heroku Toolbelt
 set PATH /usr/local/heroku/bin $PATH
