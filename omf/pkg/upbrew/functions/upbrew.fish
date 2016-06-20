@@ -30,7 +30,11 @@ end
 
 function upbrew_delete_old_brew_casks -d "Delete older-than-the-last-installed-version casks versions"
   if not test "Darwin" = (uname)
-    return 0
+    return 1
+  end
+
+  if not test -d /opt/homebrew-cask/Caskroom
+    return 1
   end
 
   cd /opt/homebrew-cask/Caskroom
