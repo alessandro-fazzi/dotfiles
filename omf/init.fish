@@ -1,13 +1,3 @@
-## Prompt
-# function fish_prompt
-#     set_color $fish_color_cwd
-#     echo -n (prompt_pwd)
-#     set_color $fish_color_cwd
-#     git-radar --fish -fetch
-#     set_color normal
-#     echo -n ' > '
-# end
-
 function rbenv_prompt
   set_color 666
   echo -n "[ruby "(rbenv version | sed -e 's/ .*//')"]"
@@ -30,13 +20,10 @@ alias la 'ls -lhAFG'
 alias mkdir 'mkdir -p'
 alias df 'df -h'
 alias du 'du -hc'
-
-function recent
-  ls -lhAFt
-end
+alias lr 'ls -lhAFt'
 
 function ports
-  netstat -tulanp
+  lsof -i -Pn | grep -i "listen"
 end
 
 alias hk 'heroku'
@@ -75,8 +62,8 @@ if not contains ./bin $PATH
 end
 
 #node_modules
-if not contains (npm bin) $PATH
-  set PATH (npm bin) $PATH
+if not contains ./node_modules/bin $PATH
+  set PATH ./node_modules/bin $PATH
 end
 
 #postgres.app executables
