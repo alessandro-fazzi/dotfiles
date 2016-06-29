@@ -96,21 +96,32 @@
   untracked = red
 
 [core]
-	excludesfile = /Users/fuzzy/.gitignore_global
+  excludesfile = /Users/fuzzy/.gitignore_global
   editor = vim
   pager = less -r
 
 [diff]
   tool = vimdiff
+	compactionHeuristic = 1
 
 [pull]
   rebase = true
 
 [push]
   default = current
+
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+
+[interactive]
+	diffFilter = diff-highlight
