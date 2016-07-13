@@ -3,54 +3,6 @@
   email = alessandro.fazzi@welaika.com
 
 [alias]
-  # shortcuts
-  ci = commit
-  co = checkout
-  di = diff
-  dc = diff --cached
-  addp = add -p .
-  st = status
-  ss = status --short
-  pf = push --force-with-lease
-  gcl = git clone
-  ga = git add
-  gap = git add -p
-  gall = git add .
-  gus = git reset HEAD
-  gm = git merge
-  g = git
-  gst = git status
-  gss = git status -s
-  gdv = git diff -w "$@" | vim -R -
-  gc = git commit -v
-  gca = git commit -v -a
-  gcm = git commit -v -m
-  gci = git commit --interactive
-  gb = git branch
-  gba = git branch -a
-  gcp = git cherry-pick
-  gco = git checkout
-  gdel = git branch -D
-  gw = git whatchanged
-
-  # info
-  fame = shortlog -s --
-  last = log -1 HEAD
-
-  # undo
-  unadd = reset HEAD --
-  unstage = reset HEAD --
-  unch = checkout --
-  unci = reset --soft
-  rmun = clean -f
-
-  # branches
-  branches = branch -av
-  br = checkout
-  newbr = checkout -b
-  rmbr = branch -d
-  menoff = merge --no-ff
-
   # assume-unchanged
   assume = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
@@ -58,23 +10,8 @@
   unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
   assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
 
-  # log
-  l  = log --oneline --decorate --graph --branches --remotes -20
-  ll = log --oneline --decorate --stat --graph
-  ls = log --oneline --decorate --graph --branches --remotes --simplify-by-decoration
-  t  = log --oneline --decorate --graph --branches --remotes -20 --pretty=format:'%C(yellow)%h%C(red bold)%d %Creset%s %C(green)(%ar) %C(cyan)<%cn>' --date=relative
-
   # list aliases
   al = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
-
-  # tag
-  tags = tag
-  lasttag = describe --tags --abbrev=0
-
-  # others
-  reco = commit --amend
-  resolved = add
-  remotes = remote -v
 
 [color]
   ui = auto
