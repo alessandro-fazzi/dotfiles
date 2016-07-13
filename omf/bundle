@@ -1,6 +1,7 @@
 package bang-bang
 package brew
 package bundler
+package https://github.com/pioneerskies/omf-plugin-gitaliases.git
 package rbenv
 package z
 theme clearance
