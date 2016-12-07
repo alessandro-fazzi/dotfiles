@@ -101,14 +101,6 @@ export HISTFILESIZE=10000
 export HISTCONTROL="ignoreboth"
 export EDITOR="vim"
 
-## Personal functions definition
-[[ -s "$HOME/.bunctionsh" ]] && source "$HOME/.bunctionsh"
-
-if [[ -f ~/.bunctionsh ]]; then
-  source ~/.bunctionsh
-fi
-
-
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
