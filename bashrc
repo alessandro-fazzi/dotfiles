@@ -24,7 +24,7 @@ function is_vim_running {
 PROMPT_INFO="${BLUE}\w"
 PROMPT_RUBY="[\$(rbenv version | sed -e 's/ .*//')]"
 # PROMPT_GIT="${YELLOW}\$(__git_ps1)"
-PROMPT_GIT="\$(psgit_function)"
+PROMPT_GIT="\$(git-radar --bash -fetch)"
 PROMPT_FOOTER="\n\$(is_vim_running && echo \"${RED}\" || echo \"${BLACK}\")↳ ${GREEN}\$ ${NC}"
 BASH_STATUS='`if [[ $? == 0 ]]; then echo "\[\033[01;32m\]✔"; else echo "\[\033[01;31m\]✘"; fi`'
 PROMPT_DIRTRIM=3
