@@ -64,6 +64,11 @@ if not contains ./node_modules/bin $PATH
   set PATH ./node_modules/bin $PATH
 end
 
+#Yarn
+if not contains (yarn global bin) $PATH
+  set PATH (yarn global bin) $PATH
+end
+
 #postgres.app executables
 set PATH /Applications/Postgres.app/Contents/Versions/9.3/bin $PATH
 
