@@ -42,6 +42,7 @@ set --export HISTSIZE 10000
 set --export HISTFILESIZE 10000
 set --export HISTCONTROL "ignoreboth"
 set --export EDITOR "vim"
+set --export WORDPRESS_WORKS_PATH "$HOME/Development/Works" # Wordmove automagic dev path
 
 set PATH /usr/local/opt/mysql55/bin $PATH
 
