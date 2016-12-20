@@ -38,11 +38,11 @@ alias chmod 'chmod'
 alias chgrp 'chgrp'
 
 ## Exports
-set --export HISTSIZE 10000
-set --export HISTFILESIZE 10000
-set --export HISTCONTROL "ignoreboth"
-set --export EDITOR "vim"
-set --export WORDPRESS_WORKS_PATH "$HOME/Development/Works" # Wordmove automagic dev path
+set --export --global HISTSIZE 10000
+set --export --global HISTFILESIZE 10000
+set --export --global HISTCONTROL "ignoreboth"
+set --export --global EDITOR "vim"
+set --export --global WORDPRESS_WORKS_PATH "$HOME/dev" # Wordmove automagic dev path
 
 set PATH /usr/local/opt/mysql55/bin $PATH
 
@@ -50,9 +50,9 @@ set PATH /usr/local/opt/mysql55/bin $PATH
 set PATH /usr/local/heroku/bin $PATH
 
 ### Fix some problems w/ iTerm2 and binding.pry
-set --export LC_CTYPE it_IT.UTF-8
-set --export LANG it_IT.UTF-8
-set --export LC_ALL it_IT.UTF-8
+set --export --global LC_CTYPE it_IT.UTF-8
+set --export --global LANG it_IT.UTF-8
+set --export --global LC_ALL it_IT.UTF-8
 
 # Binstubs PATH
 if not contains ./bin $PATH
@@ -71,4 +71,3 @@ end
 
 #postgres.app executables
 set PATH /Applications/Postgres.app/Contents/Versions/9.3/bin $PATH
-
