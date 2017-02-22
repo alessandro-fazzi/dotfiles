@@ -44,8 +44,6 @@ set --export --global HISTCONTROL "ignoreboth"
 set --export --global EDITOR "vim"
 set --export --global WORDPRESS_WORKS_PATH "$HOME/dev" # Wordmove automagic dev path
 
-set PATH /usr/local/opt/mysql55/bin $PATH
-
 ### Added by the Heroku Toolbelt
 set PATH /usr/local/heroku/bin $PATH
 
