@@ -47,9 +47,6 @@ set --export --global HISTCONTROL "ignoreboth"
 set --export --global EDITOR "vim"
 set --export --global WORDPRESS_WORKS_PATH "$HOME/dev" # Wordmove automagic dev path
 
-### Added by the Heroku Toolbelt
-set PATH /usr/local/heroku/bin $PATH
-
 ### Fix some problems w/ iTerm2 and binding.pry
 set --export --global LC_CTYPE it_IT.UTF-8
 set --export --global LANG it_IT.UTF-8
