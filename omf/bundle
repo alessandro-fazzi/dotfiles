@@ -3,7 +3,6 @@ package brew
 package bundler
 package https://github.com/pioneerskies/omf-plugin-gitaliases.git
 package https://github.com/pioneerskies/omf-plugin-hangover.git
-package rbenv
 package z
 theme clearance
 theme default

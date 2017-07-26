@@ -1,3 +1,6 @@
+# rbenv autoload
+status --is-interactive; and . (rbenv init -|psub)
+
 function rbenv_prompt
   set_color 666
   echo -n "[ruby "(rbenv version | sed -e 's/ .*//')"]"
