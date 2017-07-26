@@ -4,9 +4,6 @@ set -g OMF_PATH $HOME/.local/share/omf
 # Path to your oh-my-fish configuration.
 set -g OMF_CONFIG $HOME/.config/omf
 
-# Path for z jump around
-set -g Z_SCRIPT_PATH ~/git/z/z.sh
-
 # Adds commands for omf-bundler plugin
 set bundler_plugin_execs gem rails
 
