@@ -1,13 +1,6 @@
 # rbenv autoload
 status --is-interactive; and . (rbenv init -|psub)
 
-<<<<<<< HEAD
-=======
-function fish_right_prompt
-  rbenv_prompt
-end
-
->>>>>>> 77e73e3... switch to bobthefish omf theme
 function is_vim_running
   jobs | grep -o 'vim' > /dev/null
 end
