@@ -2,6 +2,7 @@
 set --global theme_nerd_fonts yes
 set --global theme_color_scheme base16-dark
 set --global theme_display_date no
+set --global theme_newline_cursor yes
 
 # rbenv autoload
 status --is-interactive; and . (rbenv init -|psub)
