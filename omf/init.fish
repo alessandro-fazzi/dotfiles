@@ -4,9 +4,6 @@ set --global theme_color_scheme base16-dark
 set --global theme_display_date no
 set --global theme_newline_cursor yes
 
-# rbenv autoload
-status --is-interactive; and . (rbenv init -|psub)
-
 function is_vim_running
   jobs | grep -o 'vim' > /dev/null
 end
@@ -49,6 +46,14 @@ set --export --global LC_CTYPE it_IT.UTF-8
 set --export --global LANG it_IT.UTF-8
 set --export --global LC_ALL it_IT.UTF-8
 
+#Yarn
+if not contains (yarn global bin) $PATH
+  set --universal fish_user_paths $HOME/.yarn/bin $fish_user_paths
+end
+
+# rbenv autoload
+status --is-interactive; and . (rbenv init -|psub)
+
 # Binstubs PATH
 if not contains ./bin $PATH
   set PATH ./bin $PATH ^ /dev/null
@@ -57,11 +62,6 @@ end
 #node_modules
 if not contains ./node_modules/bin $PATH
   set PATH ./node_modules/bin $PATH
-end
-
-#Yarn
-if not contains (yarn global bin) $PATH
-  set PATH (yarn global bin) $PATH
 end
 
 #postgres.app executables
