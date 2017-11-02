@@ -47,7 +47,10 @@ set --export --global LANG it_IT.UTF-8
 set --export --global LC_ALL it_IT.UTF-8
 
 # rbenv autoload
-status --is-interactive; and . (rbenv init -|psub)
+if command --search --quiet rbenv
+  set --export --global RBENV_ROOT $HOME/.rbenv
+  status --is-interactive; and . (rbenv init -|psub)
+end
 
 # Binstubs PATH
 if not contains ./bin $PATH
