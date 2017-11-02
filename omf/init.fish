@@ -46,11 +46,6 @@ set --export --global LC_CTYPE it_IT.UTF-8
 set --export --global LANG it_IT.UTF-8
 set --export --global LC_ALL it_IT.UTF-8
 
-#Yarn
-if not contains (yarn global bin) $PATH
-  set --universal fish_user_paths $HOME/.yarn/bin $fish_user_paths
-end
-
 # rbenv autoload
 status --is-interactive; and . (rbenv init -|psub)
 
