@@ -1,6 +1,6 @@
 [user]
-  name = 'Alessandro Fazzi'
-  email = alessandro.fazzi@welaika.com
+	name = 'Alessandro Fazzi'
+	email = alessandro.fazzi@welaika.com
 
 [alias]
   # assume-unchanged
@@ -33,13 +33,14 @@
   untracked = red
 
 [core]
-  excludesfile = /Users/fuzzy/.gitignore_global
+	excludesfile = /Users/fuzzy/.gitignore_global
   editor = vim
   pager = less -r
 
 [diff]
   tool = vimdiff
 	compactionHeuristic = 1
+	submodule = log
 
 [pull]
   rebase = true
@@ -62,3 +63,7 @@
 
 [interactive]
 	diffFilter = diff-highlight
+[status]
+	submodulesummary = 1
+[commit]
+	template = /Users/fuzzy/.stCommitMsg
