@@ -68,5 +68,5 @@ end
 #postgres.app executables
 set PATH /Applications/Postgres.app/Contents/Versions/9.3/bin $PATH
 
-### Homebrew PHP70 cli
-set PATH (brew --prefix homebrew/php/php70)/bin $PATH
+### Composer BIN
+set PATH $HOME/.composer/vendor/bin $PATH
