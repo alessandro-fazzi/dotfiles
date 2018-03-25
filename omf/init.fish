@@ -3,6 +3,9 @@ set --global theme_nerd_fonts yes
 set --global theme_color_scheme base16-dark
 set --global theme_display_date no
 set --global theme_newline_cursor yes
+set --global theme_display_git yes
+set --global theme_display_git_ahead_verbose yes
+set --global theme_display_git_master_branch yes
 
 function is_vim_running
   jobs | grep -o 'vim' > /dev/null
