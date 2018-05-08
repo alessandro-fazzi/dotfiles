@@ -33,9 +33,6 @@ alias rm 'rm -i'
 alias mv "mv -i"
 alias cp 'cp -i'
 alias ln 'ln -i'
-alias chown 'chown'
-alias chmod 'chmod'
-alias chgrp 'chgrp'
 
 ## Exports
 set --export --global HISTSIZE 10000
