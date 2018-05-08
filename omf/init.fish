@@ -67,3 +67,6 @@ set PATH /Applications/Postgres.app/Contents/Versions/9.3/bin $PATH
 
 ### Composer BIN
 set PATH $HOME/.composer/vendor/bin $PATH
+
+### QT
+set PATH (brew --prefix qt@5.5)/bin $PATH
