@@ -47,6 +47,7 @@
 
 [push]
   default = current
+	followTags = true
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
