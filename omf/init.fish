@@ -7,10 +7,6 @@ set --global theme_display_git yes
 set --global theme_display_git_ahead_verbose yes
 set --global theme_display_git_master_branch yes
 
-function is_vim_running
-  jobs | grep -o 'vim' > /dev/null
-end
-
 ## Aliases
 
 alias l 'ls -CF'
