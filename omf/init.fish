@@ -22,7 +22,7 @@ function ports
   lsof -i -Pn | grep -i "listen"
 end
 
-function code_sock5_proxy -d "Open a SOCK5 proxy on the local 3128 port, passing connections to code.welaika.com"
+function code_socks5_proxy -d "Open a SOCKS5 proxy on the local 3128 port, passing connections to code.welaika.com"
   ssh -f -C -N -D 0.0.0.0:3128 code
 end
 
