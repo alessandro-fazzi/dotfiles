@@ -71,11 +71,6 @@ if not contains ./bin $PATH
   set PATH ./bin $PATH ^ /dev/null
 end
 
-#node_modules
-if not contains ./node_modules/bin $PATH
-  set PATH ./node_modules/bin $PATH
-end
-
 #postgres.app executables
 set PATH /Applications/Postgres.app/Contents/Versions/9.3/bin $PATH
 
