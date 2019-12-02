@@ -72,7 +72,7 @@ if not contains ./bin $PATH
 end
 
 #postgres.app executables
-set PATH /Applications/Postgres.app/Contents/Versions/9.3/bin $PATH
+set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
 
 ### Composer BIN
 set PATH $HOME/.composer/vendor/bin $PATH
