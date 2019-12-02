@@ -14,7 +14,7 @@
   al = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
 
 [color]
-  ui = auto
+	ui = true
 
 [color "branch"]
   current = yellow reverse
@@ -22,10 +22,12 @@
   remote = green
 
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
+	meta = yellow
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	commit = yellow bold
+	whitespace = red reverse
 
 [color "status"]
   added = green
@@ -57,14 +59,20 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
-[pager]
-	log = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
+#[pager]
+#	log = diff-highlight | less
+#	show = diff-highlight | less
+#	diff = diff-highlight | less
 
 [interactive]
-	diffFilter = diff-highlight
+	diffFilter = diff-highlight | less -FRX --tabs=4
+
 [status]
 	submodulesummary = 1
 [commit]
 	template = /Users/fuzzy/.stCommitMsg
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
