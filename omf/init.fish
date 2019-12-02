@@ -56,9 +56,9 @@ set --export --global EDITOR "vim"
 set --export --global WORDPRESS_WORKS_PATH "$HOME/dev" # Wordmove automagic dev path
 
 ### Fix some problems w/ iTerm2 and binding.pry
-set --export --global LC_CTYPE it_IT.UTF-8
-set --export --global LANG it_IT.UTF-8
-set --export --global LC_ALL it_IT.UTF-8
+set --export --global LC_CTYPE en_US.UTF-8
+set --export --global LANG en_US.UTF-8
+set --export --global LC_ALL en_US.UTF-8
 
 # rbenv autoload
 if command --search --quiet rbenv
