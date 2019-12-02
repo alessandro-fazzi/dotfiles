@@ -124,3 +124,7 @@ export PATH="./node_modules/.bin:$PATH"
 #postgres.app executables
 PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
