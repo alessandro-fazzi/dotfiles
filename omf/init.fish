@@ -78,7 +78,8 @@ set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
 set PATH $HOME/.composer/vendor/bin $PATH
 
 ### QT
-set PATH (brew --prefix qt@5.5)/bin $PATH
+set PATH (brew --prefix qt)/bin $PATH
 
 ### Elixir
 set --export --global ERL_AFLAGS "-kernel shell_history enabled"
+
