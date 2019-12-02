@@ -6,6 +6,9 @@ set --global theme_newline_cursor yes
 set --global theme_display_git yes
 set --global theme_display_git_ahead_verbose yes
 set --global theme_display_git_master_branch yes
+set -g theme_display_git_stashed_verbose yes
+set --global fish_prompt_pwd_dir_length 3
+set --global theme_display_nvm yes
 
 ## Aliases
 
