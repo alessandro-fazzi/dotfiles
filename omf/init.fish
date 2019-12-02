@@ -83,3 +83,5 @@ set PATH (brew --prefix qt)/bin $PATH
 ### Elixir
 set --export --global ERL_AFLAGS "-kernel shell_history enabled"
 
+### Brew doctor advice: add sbin path to PATH
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
