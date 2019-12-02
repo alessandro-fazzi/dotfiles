@@ -29,6 +29,17 @@ function code_socks5_proxy -d "Open a SOCKS5 proxy on the local 3128 port, passi
   ssh -f -C -N -D 0.0.0.0:3128 code
 end
 
+function camar_socks5_proxy -d "Open a SOCKS5 proxy on the local 3128 port, passing connections to camar-redmine-production"
+  ssh -f -C -N -D 0.0.0.0:3128 camar-redmine-production
+end
+
+function rails_s_debug -d "Fire a Rails server wrapped inside rdebug to attach an IDE to it"
+  # Prerequisites:
+  # gem install debase ruby-debug-ide
+  # having the rails binstub
+  rdebug-ide --host 0.0.0.0 --port 1234 --dispatcher-port 26162 -- bin/rails server
+end
+
 alias hk 'heroku'
 
 # Security
