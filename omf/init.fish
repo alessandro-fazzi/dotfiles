@@ -74,8 +74,10 @@ end
 #postgres.app executables
 set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
 
+## PHP
 ### Composer BIN
 set PATH $HOME/.composer/vendor/bin $PATH
+set PATH /usr/local/opt/php@7.2/bin $PATH
 
 ### QT
 set PATH (brew --prefix qt)/bin $PATH
