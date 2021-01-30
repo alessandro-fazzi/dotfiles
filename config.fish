@@ -1,3 +1,6 @@
+# Uncomment the following line to print fish debug output during shell loading
+#set -g fish_trace 1
+
 # Path to your oh-my-fish.
 set -g OMF_PATH $HOME/.local/share/omf
 
