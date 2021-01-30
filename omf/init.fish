@@ -48,14 +48,14 @@ alias mv "mv -i"
 alias cp 'cp -i'
 alias ln 'ln -i'
 
-## Exports
+# Exports
 set --export --global HISTSIZE 10000
 set --export --global HISTFILESIZE 10000
 set --export --global HISTCONTROL "ignoreboth"
 set --export --global EDITOR "vim"
 set --export --global WORDPRESS_WORKS_PATH "$HOME/dev" # Wordmove automagic dev path
 
-### Fix some problems w/ iTerm2 and binding.pry
+# Fix some problems w/ iTerm2 and binding.pry
 set --export --global LC_CTYPE en_US.UTF-8
 set --export --global LANG en_US.UTF-8
 set --export --global LC_ALL en_US.UTF-8
@@ -71,19 +71,19 @@ if not contains ./bin $PATH
   set PATH ./bin $PATH ^ /dev/null
 end
 
-#postgres.app executables
+# postgres.app executables
 set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
 
-## PHP
-### Composer BIN
+# PHP
+## Composer BIN
 set PATH $HOME/.composer/vendor/bin $PATH
 set PATH /usr/local/opt/php@7.2/bin $PATH
 
-### QT
+# QT
 set PATH (brew --prefix qt)/bin $PATH
 
-### Elixir
+# Elixir
 set --export --global ERL_AFLAGS "-kernel shell_history enabled"
 
-### Brew doctor advice: add sbin path to PATH
+# Brew doctor advice: add sbin path to PATH
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
