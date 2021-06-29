@@ -38,6 +38,9 @@
 	excludesfile = /Users/fuzzy/.gitignore_global
   editor = vim
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	autocrlf = input
+	safecrlf = true
+	filemode = true
 
 [diff]
   tool = vimdiff
