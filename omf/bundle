@@ -1,6 +1,8 @@
+package bundler
 package foreign-env
 package https://github.com/pioneerskies/omf-plugin-gitaliases.git
 package https://github.com/pioneerskies/omf-plugin-hangover.git
 package nvm
+package rbenv
 theme bobthefish
 theme default
