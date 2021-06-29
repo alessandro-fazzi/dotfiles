@@ -64,29 +64,23 @@ set --export --global LANG en_US.UTF-8
 set --export --global LC_ALL en_US.UTF-8
 
 # rbenv autoload
-if command --search --quiet rbenv
-  set --export --global RBENV_ROOT $HOME/.rbenv
-  status --is-interactive; and . (rbenv init -|psub)
-end
-
-# Binstubs PATH
-if not contains ./bin $PATH
-  set PATH ./bin $PATH ^ /dev/null
-end
+# Commented since it's managed by the OMF rbenv plugin
+# if command --search --quiet rbenv
+#   set --export --global RBENV_ROOT $HOME/.rbenv
+#   status --is-interactive; and . (rbenv init -|psub)
+# end
 
 # postgres.app executables
-set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
+fish_add_path /Applications/Postgres.app/Contents/Versions/latest/bin
 
 # PHP
 ## Composer BIN
-set PATH $HOME/.composer/vendor/bin $PATH
-set PATH /usr/local/opt/php@7.2/bin $PATH
+fish_add_path $HOME/.composer/vendor/bin
+fish_add_path /usr/local/opt/php@7.2/bin
 
 # QT
-set PATH (brew --prefix qt)/bin $PATH
+# Commented 'cos not used. Here just as memorandum
+# fish_add_path (brew --prefix qt)/bin $PATH
 
 # Elixir
 set --export --global ERL_AFLAGS "-kernel shell_history enabled"
-
-# Brew doctor advice: add sbin path to PATH
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
