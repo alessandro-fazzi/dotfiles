@@ -13,7 +13,7 @@ set --global theme_display_k8s_context no
 set --global theme_display_hg no
 set --global theme_display_ruby yes
 
-## Aliases
+# Aliases
 
 alias l 'ls -CF'
 alias ls 'ls -hFG'
@@ -23,7 +23,14 @@ alias mkdir 'mkdir -p'
 alias df 'df -h'
 alias du 'du -hc'
 alias lr 'ls -lhAFt'
+alias hk 'heroku'
+## Security
+alias rm 'rm -i'
+alias mv "mv -i"
+alias cp 'cp -i'
+alias ln 'ln -i'
 
+# Functions
 function ports
   lsof -i -Pn | grep -i "listen"
 end
@@ -38,18 +45,10 @@ end
 
 function rails_s_debug -d "Fire a Rails server wrapped inside rdebug to attach an IDE to it"
   # Prerequisites:
-  # gem install debase ruby-debug-ide
+  # gem install debug (bundled in ruby >= 3.1)
   # having the rails binstub
-  rdebug-ide --host 0.0.0.0 --port 1234 --dispatcher-port 26162 -- bin/rails server
+  rdbg -c --open -- bin/rails server
 end
-
-alias hk 'heroku'
-
-# Security
-alias rm 'rm -i'
-alias mv "mv -i"
-alias cp 'cp -i'
-alias ln 'ln -i'
 
 # Exports
 set --export --global HISTSIZE 10000
@@ -71,16 +70,17 @@ set --export --global LC_ALL en_US.UTF-8
 # end
 
 # postgres.app executables
-fish_add_path /Applications/Postgres.app/Contents/Versions/latest/bin
+fish_add_path --path /Applications/Postgres.app/Contents/Versions/latest/bin
 
 # PHP
 ## Composer BIN
-fish_add_path $HOME/.composer/vendor/bin
-fish_add_path /usr/local/opt/php@7.2/bin
+fish_add_path --path $HOME/.composer/vendor/bin
+fish_add_path --path /usr/local/opt/php@7.2/bin
 
 # QT
 # Commented 'cos not used. Here just as memorandum
 # fish_add_path (brew --prefix qt)/bin $PATH
 
 # Elixir
-set --export --global ERL_AFLAGS "-kernel shell_history enabled"
+# Commented since not used within a long time :) <3
+# set --export --global ERL_AFLAGS "-kernel shell_history enabled"
