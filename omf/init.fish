@@ -12,6 +12,7 @@ set --global theme_display_nvm yes
 set --global theme_display_k8s_context no
 set --global theme_display_hg no
 set --global theme_display_ruby yes
+function fish_right_prompt; end
 
 # Aliases
 
