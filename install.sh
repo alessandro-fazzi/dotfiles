@@ -14,6 +14,7 @@ inputrc
 rvmrc
 vimperatorrc
 rubocop.yml
+vimrc
 )
 
 function warn() {
