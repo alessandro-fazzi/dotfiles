@@ -186,11 +186,3 @@ nnoremap <silent> <S-left> <Esc>:bp<CR>
 nnoremap <silent> <S-right> <Esc>:bn<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>u :GundoToggle<CR>
-
-"" Plugins configuration
-let g:NERDTreeMouseMode = 3
-let g:NERDTreeHighlightCursorline = 0
-let g:gundo_right = 1
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
