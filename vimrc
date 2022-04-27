@@ -65,8 +65,10 @@ set splitbelow                    " create new vertical split below the current 
 set winwidth=84
 
 "" Backup and status line
-set backupdir=~/.vim/_backup    " where to put backup files.
-set directory=~/.vim/_temp      " where to put swap files.
+" Folders commented because causing errors and, that said,
+" I really don't mind
+"set backupdir=~/.vim/_backup    " where to put backup files.
+"set directory=~/.vim/_temp      " where to put swap files.
 set laststatus=2
 
 "" FileType settings
