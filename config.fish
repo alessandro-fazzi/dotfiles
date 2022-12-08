@@ -1,6 +1,11 @@
 # Uncomment the following line to print fish debug output during shell loading
 #set -g fish_trace 1
 
+# homebrew
+# It's needed on top in order to have brew already loaded when
+# OMF's plugins will be loaded
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Path to your oh-my-fish.
 set -g OMF_PATH $HOME/.local/share/omf
 
