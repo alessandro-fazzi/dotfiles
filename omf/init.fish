@@ -75,8 +75,8 @@ fish_add_path --path /Applications/Postgres.app/Contents/Versions/latest/bin
 
 # PHP
 ## Composer BIN
-fish_add_path --path $HOME/.composer/vendor/bin
-fish_add_path --path /usr/local/opt/php@7.2/bin
+# fish_add_path --path $HOME/.composer/vendor/bin
+# fish_add_path --path /usr/local/opt/php@7.2/bin
 
 # QT
 # Commented 'cos not used. Here just as memorandum
