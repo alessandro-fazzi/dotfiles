@@ -85,3 +85,7 @@ fish_add_path --path /Applications/Postgres.app/Contents/Versions/latest/bin
 # Elixir
 # Commented since not used within a long time :) <3
 # set --export --global ERL_AFLAGS "-kernel shell_history enabled"
+
+# VS Code
+string match -q "$TERM_PROGRAM" "vscode"
+and . (code --locate-shell-integration-path fish)
