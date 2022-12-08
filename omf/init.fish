@@ -89,3 +89,6 @@ fish_add_path --path /Applications/Postgres.app/Contents/Versions/latest/bin
 # VS Code
 string match -q "$TERM_PROGRAM" "vscode"
 and . (code --locate-shell-integration-path fish)
+
+# GNU tar as default tar
+fish_add_path --path /opt/homebrew/opt/gnu-tar/libexec/gnubin
