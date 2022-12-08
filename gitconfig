@@ -1,6 +1,7 @@
 [user]
 	name = 'Alessandro Fazzi'
 	email = alessandro.fazzi@welaika.com
+	signingkey = /Users/fuzzy/.ssh/id_ed25519.pub
 
 [alias]
   # assume-unchanged
@@ -81,3 +82,5 @@
 	newHighlight = green bold 22
 [init]
 	defaultBranch = main
+[gpg]
+	format = ssh
