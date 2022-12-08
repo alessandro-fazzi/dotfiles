@@ -57,7 +57,7 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
@@ -69,7 +69,7 @@
 #	diff = diff-highlight | less
 
 [interactive]
-	diffFilter = diff-highlight | less -FRX --tabs=4
+	diffFilter = diff-so-fancy --patch
 
 [status]
 	submodulesummary = 1
@@ -82,5 +82,7 @@
 	newHighlight = green bold 22
 [init]
 	defaultBranch = main
+[add "interactive"]
+	useBuiltin = false
 [gpg]
 	format = ssh
