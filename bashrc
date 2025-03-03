@@ -1,38 +1,6 @@
-## Prompt colors
-red='\[\e[0;31m\]'
-RED='\[\e[1;31m\]'
-blue='\[\e[0;34m\]'
-BLUE='\[\e[1;34m\]'
-cyan='\[\e[0;36m\]'
-CYAN='\[\e[1;36m\]'
-black='\[\e[0;30m\]'
-BLACK='\[\e[1;30m\]'
-green='\[\e[0;32m\]'
-GREEN='\[\e[1;32m\]'
-yellow='\[\e[0;33m\]'
-YELLOW='\[\e[1;33m\]'
-magenta='\[\e[0;35m\]'
-MAGENTA='\[\e[1;35m\]'
-white='\[\e[0;37m\]'
-WHITE='\[\e[1;37m\]'
-NC='\[\e[0m\]'
+#!/usr/bin/env bash
 
-function is_vim_running {
-  jobs | grep -o 'vim' &> /dev/null
-}
-
-PROMPT_INFO="${BLUE}\w"
-PROMPT_RUBY="[\$(rbenv version | sed -e 's/ .*//')]"
-# PROMPT_GIT="${YELLOW}\$(__git_ps1)"
-PROMPT_GIT="\$(git-radar --bash -fetch)"
-PROMPT_FOOTER="\n\$(is_vim_running && echo \"${RED}\" || echo \"${BLACK}\")↳ ${GREEN}\$ ${NC}"
-BASH_STATUS='`if [[ $? == 0 ]]; then echo "\[\033[01;32m\]✔"; else echo "\[\033[01;31m\]✘"; fi`'
-PROMPT_DIRTRIM=3
-
-PS1="\n${BASH_STATUS} ${PROMPT_INFO} ${PROMPT_RUBY} ${PROMPT_GIT} ${PROMPT_FOOTER}"
-
-## Aliases
-
+# Aliases
 alias l='ls -CF'
 alias ls='ls -hFG'
 alias ll='ls -hFlG'
@@ -49,11 +17,6 @@ alias recent='ls -lhAFt --color=auto'
 alias ports='netstat -tulanp'
 alias apache2_restart='sudo service apache2 restart'
 alias mysql_restart='sudo service mysql restart'
-
-alias hk='heroku'
-
-# Expand aliases with sudo too
-alias sudo='sudo '
 
 # Security
 alias rm='rm -i'
@@ -73,58 +36,8 @@ shopt -s histappend     # Append to history rather than overwrite.
 shopt -s nocaseglob     # Pathname expansion will be treated as case-insensitive.
 shopt -s extglob        # Extended globbing expansion (see man bash -> Pathname Expansion - Pattern Matching)
 
-## Bash completion
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-  . /etc/bash_completion
-fi
-
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
-
-if [ -f /usr/local/etc/bash_completion.d/wp-completion.bash ]; then
-  . /usr/local/etc/bash_completion.d/wp-completion.bash
-fi
-
-## Colored manpages
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
-
 ## Exports
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTCONTROL="ignoreboth"
 export EDITOR="vim"
-
-export PATH="/usr/local/mysql/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-### Fix some problems w/ iTerm2 and binding.pry
-export LC_CTYPE=it_IT.UTF-8
-export LANG=it_IT.UTF-8
-export LC_ALL=it_IT.UTF-8
-
-## rbenv
-## rbenv shims autocompletion
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-## rbenv PATH
-export PATH="./bin:$PATH"
-
-#node_modules
-export PATH="./node_modules/.bin:$PATH"
-
-#postgres.app executables
-PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -3,17 +3,12 @@
 DOTFILES_DIR=".dotfiles"
 BACKUP_DIR="backup"
 DOTFILES=(
-ackrc
 bashrc
 bash_profile
 curlrc
 gemrc
 gitconfig
-gitignore_global
-inputrc
-rvmrc
-vimperatorrc
-rubocop.yml
+gitignore
 vimrc
 )
 

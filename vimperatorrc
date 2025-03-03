@@ -1,8 +1,0 @@
-let mapleader=','
-noremap j 3j
-noremap k 3k
-noremap J <C-d>
-noremap K <C-u>
-"noremap H gT
-"noremap L gt
-noremap <Leader><Leader> <C-^>
