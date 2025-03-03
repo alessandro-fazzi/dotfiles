@@ -3,86 +3,93 @@
 	email = alessandro.fazzi@welaika.com
 	signingkey = /Users/fuzzy/.ssh/id_ed25519.pub
 
-[alias]
-  # assume-unchanged
-  assume = update-index --assume-unchanged
-  unassume = update-index --no-assume-unchanged
-  assumed = "!git ls-files -v | grep ^h | cut -c 3-"
-  unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
-  assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
-
-  # list aliases
-  al = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
-
-[color]
-	ui = true
-
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-
-[color "diff"]
-	meta = yellow
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	commit = yellow bold
-	whitespace = red reverse
-
-[color "status"]
-  added = green
-  changed = yellow
-  untracked = red
-
 [core]
-	excludesfile = /Users/fuzzy/.gitignore_global
-  editor = vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
 	autocrlf = input
 	safecrlf = true
 	filemode = true
+	excludesfile = ~/.gitignore
 
 [diff]
-  tool = vimdiff
-	compactionHeuristic = 1
 	submodule = log
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 
 [pull]
-  rebase = true
+	rebase = true
 
 [push]
-  default = current
+	default = current
+	default = simple
+	autoSetupRemote = true
 	followTags = true
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-
-#[pager]
-#	log = diff-highlight | less
-#	show = diff-highlight | less
-#	diff = diff-highlight | less
-
-[interactive]
-	diffFilter = diff-so-fancy --patch
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
 
 [status]
 	submodulesummary = 1
-[commit]
-	template = /Users/fuzzy/.stCommitMsg
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+
 [init]
 	defaultBranch = main
-[add "interactive"]
-	useBuiltin = false
+
 [gpg]
 	format = ssh
+
+[column]
+	ui = auto
+
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = version:refname
+
+[help]
+	autocorrect = prompt
+
+[commit]
+	verbose = true
+
+[rerere]
+	enabled = true
+	autoupdate = true
+
+[alias]
+	# assume-unchanged
+	assume = update-index --assume-unchanged
+	unassume = update-index --no-assume-unchanged
+	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+	assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+	c = commit -S
+	cm = commit -S -m
+	ap = add -p
+	all = add .
+	st = status
+	pf = push --force-with-lease
+	assume = update-index --assume-unchanged
+	unassume = update-index --no-assume-unchanged
+	rmignored = "!git ls-files -o -i --exclude-standard | xargs git rm --cached"
+	# lcur: Displays the last 10 commits in a graphical, one-line format with decorations, comparing HEAD to its upstream branch.
+	lcur = log --graph --oneline --decorate -n 10 HEAD @{u}
+	l = "log --oneline --decorate --graph --branches --remotes -20 --pretty=format:\"%C(yellow)%h%C(red bold)%d %Creset%s %C(green)(%ar) %C(cyan)<%cn>\" --date=relative"
+	ls = log --oneline --decorate --graph --branches --remotes --simplify-by-decoration
+	reco = commit --amend --no-edit
+
+	# list aliases
+	al = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+
+	# Non ancora portato da OMF. Non sicuro che funzioni a dovere
+	# function git-clean-branches
+  #   git remote prune origin && git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
+	# end
+	# alias gcb 'git-clean-branches'
