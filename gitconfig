@@ -84,6 +84,7 @@
 	l = "log --oneline --decorate --graph --branches --remotes -20 --pretty=format:\"%C(yellow)%h%C(red bold)%d %Creset%s %C(green)(%ar) %C(cyan)<%cn>\" --date=relative"
 	ls = log --oneline --decorate --graph --branches --remotes --simplify-by-decoration
 	reco = commit --amend --no-edit
+	recore = commit --amend
 
 	# list aliases
 	al = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
@@ -93,3 +94,6 @@
   #   git remote prune origin && git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
 	# end
 	# alias gcb 'git-clean-branches'
+
+[color "status"]
+	changed = yellow
