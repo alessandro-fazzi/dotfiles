@@ -63,3 +63,7 @@ set smartcase                     " unless they contain at least one capital let
 set splitright                    " create new horizontal split on the right
 set splitbelow                    " create new vertical split below the current window
 set winwidth=84
+
+"" Enable syntax highlighting for Git commit messages
+autocmd FileType gitcommit syntax enable
+autocmd FileType gitcommit setlocal spell textwidth=72
