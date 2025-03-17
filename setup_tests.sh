@@ -43,3 +43,11 @@ function install_shellcheck() {
         warn "shellcheck is already installed in ${SHELLCHECK_DIR}"
     fi
 }
+
+# If this script is being executed directly (not sourced), run both installation functions
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    warn "Setting up testing environment..."
+    install_bats
+    install_shellcheck
+    warn "Testing environment setup complete."
+fi
