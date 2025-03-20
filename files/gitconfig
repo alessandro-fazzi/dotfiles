@@ -85,9 +85,7 @@
 	ls = log --oneline --decorate --graph --branches --remotes --simplify-by-decoration
 	reco = commit --amend --no-edit
 	recore = commit --amend
-
-	# list aliases
-	al = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+	difft = -c diff.external=difft diff
 	gone = !git branch -vv | grep ': gone]' | awk '{print $1}'
 
 	# Non ancora portato da OMF. Non sicuro che funzioni a dovere
