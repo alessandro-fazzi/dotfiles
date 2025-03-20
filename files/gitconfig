@@ -88,6 +88,7 @@
 
 	# list aliases
 	al = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+	gone = !git branch -vv | grep ': gone]' | awk '{print $1}'
 
 	# Non ancora portato da OMF. Non sicuro che funzioni a dovere
 	# function git-clean-branches
