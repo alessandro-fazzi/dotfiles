@@ -8,6 +8,7 @@
 	safecrlf = true
 	filemode = true
 	excludesfile = ~/.gitignore
+	pager = delta
 
 [diff]
 	submodule = log
@@ -76,8 +77,6 @@
 	all = add .
 	st = status
 	pf = push --force-with-lease
-	assume = update-index --assume-unchanged
-	unassume = update-index --no-assume-unchanged
 	rmignored = "!git ls-files -o -i --exclude-standard | xargs git rm --cached"
 	# lcur: Displays the last 10 commits in a graphical, one-line format with decorations, comparing HEAD to its upstream branch.
 	lcur = log --graph --oneline --decorate -n 10 HEAD @{u}
@@ -85,7 +84,6 @@
 	ls = log --oneline --decorate --graph --branches --remotes --simplify-by-decoration
 	reco = commit --amend --no-edit
 	recore = commit --amend
-	difft = -c diff.external=difft diff
 	gone = !git branch -vv | grep ': gone]' | awk '{print $1}'
 
 	# Non ancora portato da OMF. Non sicuro che funzioni a dovere
@@ -96,3 +94,19 @@
 
 [color "status"]
 	changed = yellow
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	hyperlinks = true
+	hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+	side-by-side = true
+	theme = Monokai Extended
+	dark = true
+
+[merge]
+	# conflictstyle = zdiff3
+[http]
+	sslVerify = true
