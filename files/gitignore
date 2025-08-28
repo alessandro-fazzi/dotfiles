@@ -1,2 +1,5 @@
 devbox.json
 devbox.lock
+CLAUDE.md
+.claude/
+.DS_Store
