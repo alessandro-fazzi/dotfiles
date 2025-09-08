@@ -149,5 +149,5 @@ teardown() {
   run handle_error 1 "$error_message"
 
   # Check if the output contains the error message
-  [[ "$output" =~ "$error_message" ]]
+  [[ "$output" =~ $error_message ]]
 }

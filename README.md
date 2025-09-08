@@ -11,9 +11,18 @@ weLaika's dotfiles
 4. Update `[user]` section in `gitconfig` file
 5. Edit to suit your needs
 
+
 This will backup all the dotfiles that you are using in the `~/.dotfiles/backup`
 directory and will install in your home symlinks to the dotfiles in the
 `~/.dotfiles/files` folder.
+
+## Launch Agents
+
+* Any `.plist` files placed in `~/.dotfiles/launch_agents/` will be automatically (re)loaded using `launchctl` during install.
+* The installer will attempt to `launchctl unload` and then `launchctl load` each plist in that folder (macOS only).
+* This allows you to manage custom user launch agents (e.g., scheduled jobs, background services) as part of your dotfiles setup.
+* The install script assumes the folder exists and will skip with a warning if no plists are present.
+* See `tests/launch_agents.bats` for automated test coverage of this feature.
 
 ## Features:
 
@@ -99,6 +108,13 @@ directory and will install in your home symlinks to the dotfiles in the
   - Custom key mappings for improved productivity
   - Tab and indentation settings for consistent code formatting
   - Line numbering and visual indicators for code structure
+
+
+### Automatic Brewfile
+
+* The Brewfile in `~/.dotfiles/Brewfile` is automatically generated and updated by a launch agent.
+* This agent runs `brew bundle dump --file=$HOME/.dotfiles/Brewfile --describe --force` daily, keeping your Homebrew package list in sync.
+* You can use this Brewfile to quickly set up or restore your development environment on a new machine.
 
 ### TODO
 

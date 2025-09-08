@@ -128,6 +128,44 @@ function backup_dir(){
     [[ -d $BACKUP_DIR ]] || mkdir -p $BACKUP_DIR
 }
 
+# Install a per-user launch agent for the repository's plist.
+function install_launch_agents() {
+    local launch_agents_dir="${PWD}/launch_agents"
+    local has_error=0
+
+    # Gather all plist files in the repo launch_agents directory. Assume the repo folder exists.
+    shopt -s nullglob
+    local plists=("$launch_agents_dir"/*.plist)
+    shopt -u nullglob
+
+    # If no plists found, warn and skip
+    if [[ ${#plists[@]} -eq 0 ]]; then
+        warn "No launch agent plists found in ${launch_agents_dir}. Skipping launch agent installation."
+        return 0
+    fi
+
+    local launchctl_cmd="${LAUNCHCTL_CMD:-launchctl}"
+    # Process each plist: assume they live in ${launch_agents_dir} and unload/load each one
+    for src_plist in "${plists[@]}"; do
+        echo "Installing launch agent: $src_plist"
+        if [[ "$(uname)" == "Darwin" || -n "$FORCE_MACOS" ]]; then
+            "$launchctl_cmd" unload "$src_plist" 2>/dev/null || true
+            if ! "$launchctl_cmd" load "$src_plist"; then
+                warn "Failed to load launch agent ${src_plist} with ${launchctl_cmd}."
+                has_error=1
+            else
+                echo "Loaded launch agent: $src_plist"
+            fi
+        else
+            warn "Not macOS (or FORCE_MACOS not set). Skipping launchctl load/unload for ${src_plist}."
+        fi
+    done
+
+    handle_error $has_error "Some launch agents could not be installed/loaded."
+
+    return 0
+}
+
 ############################################
 
 # Only run when script is executed, not when sourced for testing
@@ -136,6 +174,7 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
   backup
   link_dotfiles
   link_fish
+  install_launch_agents
 fi
 
 ############################################

@@ -5,8 +5,8 @@ SETUP_SCRIPT="./setup_tests.sh"
 TEST_DIR="./tests"
 SHELLCHECK_EXEC="./shellcheck/shellcheck"
 
-# Dynamically find all shell scripts in the project root directory
-SHELL_SCRIPTS=$(find . -maxdepth 1 -type f \( -name "*.sh" -o -name "*.bash" \))
+# Dynamically find all shell scripts in the project root directory and all .bats files in tests/
+SHELL_SCRIPTS=$(find . -maxdepth 1 -type f \( -name "*.sh" -o -name "*.bash" \); find ./tests -type f -name "*.bats")
 
 # Check for CI environment
 if [[ -n "$CI" ]]; then
