@@ -1,5 +1,5 @@
 [user]
-	name = 'Alessandro Fazzi'
+	name = Alessandro Fazzi
 	email = alessandro.fazzi@welaika.com
 	signingkey = /Users/fuzzy/.ssh/id_ed25519.pub
 
@@ -59,6 +59,7 @@
 
 [commit]
 	verbose = true
+	gpgsign = false
 
 [rerere]
 	enabled = true
@@ -78,10 +79,9 @@
 	st = status
 	pf = push --force-with-lease
 	rmignored = "!git ls-files -o -i --exclude-standard | xargs git rm --cached"
-	# lcur: Displays the last 10 commits in a graphical, one-line format with decorations, comparing HEAD to its upstream branch.
-	lcur = log --graph --oneline --decorate -n 10 HEAD @{u}
-	l = "log --oneline --decorate --graph --branches --remotes -20 --pretty=format:\"%C(yellow)%h%C(red bold)%d %Creset%s %C(green)(%ar) %C(cyan)<%cn>\" --date=relative"
-	ls = log --oneline --decorate --graph --branches --remotes --simplify-by-decoration
+	# l: Displays the last 10 commits in a graphical, one-line format with decorations, comparing HEAD to its upstream branch.
+	l = log --oneline -10 HEAD @{u}
+	ls = log --oneline --decorate --graph --branches --remotes -20
 	reco = commit --amend --no-edit
 	recore = commit --amend
 	gone = !git branch -vv | grep ': gone]' | awk '{print $1}'
