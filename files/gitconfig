@@ -79,8 +79,7 @@
 	st = status
 	pf = push --force-with-lease
 	rmignored = "!git ls-files -o -i --exclude-standard | xargs git rm --cached"
-	# l: Displays the last 10 commits in a graphical, one-line format with decorations, comparing HEAD to its upstream branch.
-	l = log --oneline -10 HEAD @{u}
+	l = log --oneline --graph -10 HEAD
 	ls = log --oneline --decorate --graph --branches --remotes -20
 	reco = commit --amend --no-edit
 	recore = commit --amend
