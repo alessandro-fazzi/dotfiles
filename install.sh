@@ -131,6 +131,7 @@ function backup_dir(){
 # Install a per-user launch agent for the repository's plist.
 function install_launch_agents() {
     local launch_agents_dir="${PWD}/launch_agents"
+    local user_launch_agents_dir="${HOME}/Library/LaunchAgents"
     local has_error=0
 
     # Gather all plist files in the repo launch_agents directory. Assume the repo folder exists.
@@ -144,17 +145,42 @@ function install_launch_agents() {
         return 0
     fi
 
+    # Ensure user's LaunchAgents directory exists
+    mkdir -p "$user_launch_agents_dir"
+
     local launchctl_cmd="${LAUNCHCTL_CMD:-launchctl}"
-    # Process each plist: assume they live in ${launch_agents_dir} and unload/load each one
+    # Process each plist: symlink to ~/Library/LaunchAgents/ and load
     for src_plist in "${plists[@]}"; do
+        local plist_name
+        plist_name=$(basename "$src_plist")
+        local target_plist="${user_launch_agents_dir}/${plist_name}"
+
         echo "Installing launch agent: $src_plist"
         if [[ "$(uname)" == "Darwin" || -n "$FORCE_MACOS" ]]; then
+            # Unload from both possible locations
+            "$launchctl_cmd" unload "$target_plist" 2>/dev/null || true
             "$launchctl_cmd" unload "$src_plist" 2>/dev/null || true
-            if ! "$launchctl_cmd" load "$src_plist"; then
-                warn "Failed to load launch agent ${src_plist} with ${launchctl_cmd}."
+
+            # Create or update symlink
+            if [[ -L "$target_plist" ]]; then
+                rm "$target_plist"
+            elif [[ -e "$target_plist" ]]; then
+                warn "Regular file exists at ${target_plist}. Removing it to create symlink."
+                rm "$target_plist"
+            fi
+
+            if ! ln -s "$src_plist" "$target_plist"; then
+                warn "Failed to create symlink for ${plist_name}."
+                has_error=1
+                continue
+            fi
+
+            # Load from the symlinked location
+            if ! "$launchctl_cmd" load "$target_plist"; then
+                warn "Failed to load launch agent ${target_plist} with ${launchctl_cmd}."
                 has_error=1
             else
-                echo "Loaded launch agent: $src_plist"
+                echo "Loaded launch agent: $target_plist"
             fi
         else
             warn "Not macOS (or FORCE_MACOS not set). Skipping launchctl load/unload for ${src_plist}."

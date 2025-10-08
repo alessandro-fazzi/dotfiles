@@ -27,14 +27,21 @@ teardown() {
 @test "install_launch_agents invokes unload/load" {
   [ -f "$(pwd)/launch_agents/com.alessandro.brewupdatebundle.plist" ]
 
-  run install_launch_agents "$HOME"
+  run install_launch_agents
 
   # Check output for install and loaded messages
-  expected_plist_path="$(pwd)/launch_agents/com.alessandro.brewupdatebundle.plist"
-  [[ "$output" == *"Installing launch agent: $expected_plist_path"* ]]
-  [[ "$output" == *"Loaded launch agent: $expected_plist_path"* ]]
+  expected_src_plist="$(pwd)/launch_agents/com.alessandro.brewupdatebundle.plist"
+  expected_target_plist="$HOME/Library/LaunchAgents/com.alessandro.brewupdatebundle.plist"
 
-  # Check fake launchctl log for exact commands
-  grep -Fqx "unload $expected_plist_path" "$LAUNCHCTL_LOG"
-  grep -Fqx "load $expected_plist_path" "$LAUNCHCTL_LOG"
+  [[ "$output" == *"Installing launch agent: $expected_src_plist"* ]]
+  [[ "$output" == *"Loaded launch agent: $expected_target_plist"* ]]
+
+  # Check that symlink was created
+  [ -L "$expected_target_plist" ]
+  [ "$(readlink "$expected_target_plist")" = "$expected_src_plist" ]
+
+  # Check fake launchctl log for exact commands (should unload both locations, then load from target)
+  grep -Fqx "unload $expected_target_plist" "$LAUNCHCTL_LOG"
+  grep -Fqx "unload $expected_src_plist" "$LAUNCHCTL_LOG"
+  grep -Fqx "load $expected_target_plist" "$LAUNCHCTL_LOG"
 }

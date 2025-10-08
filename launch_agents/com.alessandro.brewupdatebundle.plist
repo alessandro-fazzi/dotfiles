@@ -20,6 +20,9 @@
       <integer>0</integer>
     </dict>
 
+    <key>RunAtLoad</key>
+    <true/>
+
     <key>StandardOutPath</key>
     <string>/tmp/brewupdatebundle.log</string>
     <key>StandardErrorPath</key>
