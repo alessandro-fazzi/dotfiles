@@ -1,6 +1,6 @@
 tap "dart-lang/dart"
-tap "heroku/brew"
 tap "homebrew/services"
+tap "homeport/tap"
 tap "jesseduffield/lazygit"
 tap "nutcracker/tap"
 tap "rbenv/tap"
@@ -10,11 +10,18 @@ tap "shivammathur/php"
 brew "imagemagick"
 # Ruby version manager
 brew "rbenv"
+# Creates screenshots based on terminal command output.
+brew "homeport/tap/termshot"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
 # Free and open-source web browser
 cask "chromium"
+# Create and run Linux containers using lightweight virtual machines
+cask "container"
 cask "font-caskaydia-mono-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
 # Password manager app
 cask "keepassxc"
 # Web browser
@@ -60,6 +67,7 @@ vscode "kainiklas.composer-intellisense"
 vscode "karunamurti.haml"
 vscode "koichisasada.vscode-rdbg"
 vscode "l13rary.l13-diff"
+vscode "marcoroth.herb-lsp"
 vscode "marcoroth.stimulus-lsp"
 vscode "mechatroner.rainbow-csv"
 vscode "metaseed.metago"
