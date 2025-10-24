@@ -1,19 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DOTFILES_DIR="$(pwd)/files"
-BACKUP_DIR="backup"
-DOTFILES=(
-bashrc
-bash_profile
-curlrc
-gemrc
-gitconfig
-gitignore
-vimrc
-)
-FISH_FILES=(
-config.fish
-)
+BACKUP_DIR="${BACKUP_DIR:-backup}"
+
+# Source the configuration file that defines which files to manage
+# shellcheck disable=SC1091
+source "$(dirname "${BASH_SOURCE[0]}")/files.conf"
 
 function warn() {
   echo "$(tput bold)$(tput setaf 3)  *** ${1}$(tput sgr0)"
@@ -53,20 +45,24 @@ function link() {
 }
 
 # shellcheck disable=SC2120
-function link_dotfiles() {
+function link_files() {
     local base_dir=${1:-$HOME}  # Use the provided base directory or default to $HOME
-    for script in "${DOTFILES[@]}"; do
-        link "${DOTFILES_DIR}/$script" "${base_dir}/.${script}"
-    done
-}
 
-# shellcheck disable=SC2120
-function link_fish() {
-    local base_dir=${1:-$HOME}  # Use the provided base directory or default to $HOME
-    local fish_config_dir="${base_dir}/.config/fish"
-    mkdir -p "$fish_config_dir"
-    for fish_file in "${FISH_FILES[@]}"; do
-        link "${DOTFILES_DIR}/$fish_file" "${fish_config_dir}/$fish_file"
+    # Link all managed files
+    for file_id in "${!MANAGED_FILES[@]}"; do
+        local config="${MANAGED_FILES[$file_id]}"
+        local source_file="${config%%:*}"
+        local dest_path="${config##*:}"
+        local source_path="${DOTFILES_DIR}/${source_file}"
+        local target_path="${base_dir}/${dest_path}"
+
+        # Create parent directory if it doesn't exist
+        local parent_dir
+        parent_dir=$(dirname "$target_path")
+        mkdir -p "$parent_dir"
+
+        # Link the file
+        link "$source_path" "$target_path"
     done
 }
 
@@ -93,39 +89,31 @@ function backup(){
     local base_dir=${1:-$HOME}  # Use the provided base directory or default to $HOME
     local has_error=0
 
-    # Backup regular dotfiles
-    for script in "${DOTFILES[@]}"; do
-        dotfile=${base_dir}/.${script}
-        # Skip if file doesn't exist or is already a symlink
-        [[ -f $dotfile && ! -L $dotfile ]] || continue;
-        backup=${BACKUP_DIR}/${script}
-        if [[ -f $backup ]]; then
-            warn "${BACKUP_DIR}/${script} already exists. Skipping."
-            has_error=1
-        else
-            mv "$dotfile" "$backup"
-        fi
-    done
+    # Backup all managed files
+    for file_id in "${!MANAGED_FILES[@]}"; do
+        local config="${MANAGED_FILES[$file_id]}"
+        local source_file="${config%%:*}"
+        local dest_path="${config##*:}"
+        local target_file="${base_dir}/${dest_path}"
 
-    # Backup fish config files
-    local fish_config_dir="${base_dir}/.config/fish"
-    for fish_file in "${FISH_FILES[@]}"; do
-        local fish_path="${fish_config_dir}/${fish_file}"
-        [[ -f $fish_path && ! -L $fish_path ]] || continue;
-        local fish_backup="${BACKUP_DIR}/${fish_file}"
-        if [[ -f $fish_backup ]]; then
-            warn "${BACKUP_DIR}/${fish_file} already exists. Skipping."
+        # Skip if file doesn't exist or is already a symlink
+        [[ -f $target_file && ! -L $target_file ]] || continue
+
+        local backup_file="${BACKUP_DIR}/${source_file}"
+        if [[ -f $backup_file ]]; then
+            warn "${backup_file} already exists. Skipping."
             has_error=1
         else
-            mv "$fish_path" "$fish_backup"
+            mv "$target_file" "$backup_file"
         fi
     done
 
     handle_error $has_error "Some files could not be backed up. Please check the warnings above."
+    return $?
 }
 
 function backup_dir(){
-    [[ -d $BACKUP_DIR ]] || mkdir -p $BACKUP_DIR
+    [[ -d $BACKUP_DIR ]] || mkdir -p "$BACKUP_DIR"
 }
 
 # Install a per-user launch agent for the repository's plist.
@@ -198,8 +186,7 @@ function install_launch_agents() {
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
   backup_dir
   backup
-  link_dotfiles
-  link_fish
+  link_files
   install_launch_agents
 fi
 

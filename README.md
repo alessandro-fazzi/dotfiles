@@ -16,6 +16,43 @@ This will backup all the dotfiles that you are using in the `~/.dotfiles/backup`
 directory and will install in your home symlinks to the dotfiles in the
 `~/.dotfiles/files` folder.
 
+## Configuration
+
+The files managed by this dotfiles repository are configured in `files.conf`. This configuration file uses a bash associative array to map files from the `files/` directory to their destination in your home directory.
+
+### Adding a New Managed File
+
+To add a new file to be managed by the dotfiles installer:
+
+1. **Place your file** in the `~/.dotfiles/files/` directory
+2. **Edit `files.conf`** and add an entry to the `MANAGED_FILES` array:
+   ```bash
+   [unique_id]="source_file:destination_path"
+   ```
+   - `unique_id`: A unique identifier for this file (e.g., `tmux`, `zshrc`)
+   - `source_file`: The filename in the `files/` directory
+   - `destination_path`: The path relative to `$HOME` where it should be linked
+
+3. **Run the installer**: `./install.sh`
+
+### Examples
+
+```bash
+# Links files/bashrc to $HOME/.bashrc
+[bashrc]="bashrc:.bashrc"
+
+# Links files/config.fish to $HOME/.config/fish/config.fish
+[fish_config]="config.fish:.config/fish/config.fish"
+
+# Links files/starship.toml to $HOME/.config/starship.toml
+[starship]="starship.toml:.config/starship.toml"
+```
+
+The installer will automatically:
+- Create any necessary parent directories (e.g., `.config/fish/`)
+- Back up existing files before creating symlinks
+- Link all configured files in a single pass
+
 ## Launch Agents
 
 * Any `.plist` files placed in `~/.dotfiles/launch_agents/` will be automatically (re)loaded using `launchctl` during install.
@@ -108,6 +145,10 @@ directory and will install in your home symlinks to the dotfiles in the
   - Custom key mappings for improved productivity
   - Tab and indentation settings for consistent code formatting
   - Line numbering and visual indicators for code structure
+* `starship.toml`:
+  - Custom terminal prompt configuration
+  - Managed and symlinked to `~/.config/starship.toml`
+  - Used by the fish shell (referenced in `config.fish`)
 
 
 ### Automatic Brewfile
@@ -118,7 +159,6 @@ directory and will install in your home symlinks to the dotfiles in the
 
 ### TODO
 
-- starship
 - devbox global
 
 ### Testing and Validation

@@ -1,10 +1,7 @@
 #!/usr/bin/env bats
+# shellcheck disable=SC1091
 
 setup() {
-  # Source install.sh to get access to the DOTFILES array
-  # shellcheck disable=SC1091
-  source ./install.sh
-
   # Create a temporary directory for testing
   export TEMP_HOME
   TEMP_HOME=$(mktemp -d)
@@ -13,7 +10,6 @@ setup() {
 
   # Create a clean backup directory for each test
   rm -rf "$BACKUP_DIR" 2>/dev/null
-  backup_dir
 }
 
 teardown() {
@@ -22,47 +18,57 @@ teardown() {
 }
 
 @test "backup_dir creates backup directory" {
+  source ./install.sh
   backup_dir
   [ -d "$BACKUP_DIR" ]
 }
 
 @test "backup moves existing dotfiles to backup" {
-  # Create the dotfiles in the temp home directory first
-  for script in "${DOTFILES[@]}"; do
-    touch "$TEMP_HOME/.$script"
-  done
+  source ./install.sh
 
-  # Create fish config file
-  mkdir -p "$TEMP_HOME/.config/fish"
-  for fish_file in "${FISH_FILES[@]}"; do
-    touch "$TEMP_HOME/.config/fish/$fish_file"
+  backup_dir
+
+  # Create all managed files in the temp home directory first
+  for file_id in "${!MANAGED_FILES[@]}"; do
+    local config="${MANAGED_FILES[$file_id]}"
+    local source_file="${config%%:*}"
+    local dest_path="${config##*:}"
+    local target_file="${TEMP_HOME}/${dest_path}"
+
+    # Create parent directory if needed
+    mkdir -p "$(dirname "$target_file")"
+    touch "$target_file"
   done
 
   backup "$TEMP_HOME"
 
-  # Check if regular dotfiles were backed up
-  for script in "${DOTFILES[@]}"; do
-    [ -f "$BACKUP_DIR/$script" ]
-  done
-
-  # Check if fish config files were backed up
-  for fish_file in "${FISH_FILES[@]}"; do
-    [ -f "$BACKUP_DIR/$fish_file" ]
+  # Check if all files were backed up
+  for file_id in "${!MANAGED_FILES[@]}"; do
+    local config="${MANAGED_FILES[$file_id]}"
+    local source_file="${config%%:*}"
+    [ -f "$BACKUP_DIR/$source_file" ]
   done
 }
 
 @test "link creates symlinks to dotfiles" {
-  backup "$TEMP_HOME"
-  link_dotfiles "$TEMP_HOME"
+  source ./install.sh
 
-  # Check if all dotfiles were linked
-  for script in "${DOTFILES[@]}"; do
-    [ -L "$TEMP_HOME/.$script" ]
+  backup "$TEMP_HOME"
+  link_files "$TEMP_HOME"
+
+  # Check if all managed files were linked
+  for file_id in "${!MANAGED_FILES[@]}"; do
+    local config="${MANAGED_FILES[$file_id]}"
+    local dest_path="${config##*:}"
+    [ -L "$TEMP_HOME/${dest_path}" ]
   done
 }
 
 @test "warning is displayed for existing backup" {
+  source ./install.sh
+
   # Create some dummy dotfiles for testing
+  mkdir -p "$BACKUP_DIR"
   touch "$TEMP_HOME"/.bashrc
   touch "$BACKUP_DIR"/bashrc
 
@@ -71,22 +77,22 @@ teardown() {
 
   [ "$status" -eq 1 ]
   # Check if warning is in output
-  [[ "$output" =~ "backup/bashrc already exists" ]]
+  [[ "$output" =~ "bashrc already exists" ]]
 }
 
-@test "link_fish creates symlinks to fish config files" {
+@test "link_files creates symlinks to all config files including nested paths" {
+  source ./install.sh
+
   backup_dir
   backup "$TEMP_HOME"  # Pass the temporary $HOME directory
-  link_fish "$TEMP_HOME"  # Pass the temporary $HOME directory
+  link_files "$TEMP_HOME"  # Pass the temporary $HOME directory
 
-  # Check if all fish config files were linked
-  for fish_file in "${FISH_FILES[@]}"; do
-    [ -L "$TEMP_HOME/.config/fish/$fish_file" ]
-  done
+  # Check that nested config files (like .config/fish/config.fish) were linked
+  [ -L "$TEMP_HOME/.config/fish/config.fish" ]
+  [ -L "$TEMP_HOME/.config/starship.toml" ]
 }
 
 @test "link creates symlinks for the given source and target" {
-  # shellcheck disable=SC1091
   source ./install.sh
 
   # Create a dummy file for testing
@@ -100,6 +106,8 @@ teardown() {
 }
 
 @test "link overwrites existing symlink" {
+  source ./install.sh
+
   # Create a target file that will be a symlink to an old location
   touch "$TEMP_HOME/old_target"
 
@@ -126,6 +134,8 @@ teardown() {
 }
 
 @test "link returns error for existing regular files" {
+  source ./install.sh
+
   # Create a regular file at the target location
   touch "$TEMP_HOME/regular_file"
 
@@ -142,6 +152,8 @@ teardown() {
 }
 
 @test "handle_error handles errors correctly" {
+  source ./install.sh
+
   # Create a dummy error message
   local error_message="Test error occurred"
 
