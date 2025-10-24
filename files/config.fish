@@ -3,6 +3,7 @@
 # Uncomment the following line to print fish debug output during shell loading
 #set -g fish_trace 1
 
+# Exports
 set -gx LANG en_US.UTF-8
 set -gx LC_COLLATE en_US.UTF-8
 set -gx LC_CTYPE en_US.UTF-8
@@ -10,6 +11,13 @@ set -gx LC_MESSAGES en_US.UTF-8
 set -gx LC_MONETARY en_US.UTF-8
 set -gx LC_NUMERIC en_US.UTF-8
 set -gx LC_TIME en_US.UTF-8
+set --export --global HISTSIZE 10000
+set --export --global HISTFILESIZE 10000
+set --export --global HISTCONTROL "ignoreboth"
+set --export --global EDITOR "vim"
+set --export --global WORDPRESS_WORKS_PATH "$HOME/dev" # Wordmove automagic dev path
+set --export --global BUNDLER_EDITOR "code"
+set --export --global XDG_CONFIG_HOME "$HOME/.config"
 
 # Activate homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -82,14 +90,6 @@ function git-prune-gone -d "Delete local branches that have no remote tracking b
         end
     end
 end
-
-# Exports
-set --export --global HISTSIZE 10000
-set --export --global HISTFILESIZE 10000
-set --export --global HISTCONTROL "ignoreboth"
-set --export --global EDITOR "vim"
-set --export --global WORDPRESS_WORKS_PATH "$HOME/dev" # Wordmove automagic dev path
-set --export --global BUNDLER_EDITOR "code"
 
 # postgres.app executables
 fish_add_path --path /Applications/Postgres.app/Contents/Versions/latest/bin
