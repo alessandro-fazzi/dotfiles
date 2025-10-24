@@ -103,3 +103,7 @@ source ~/.orbstack/shell/init.fish 2>/dev/null || :
 
 
 alias claude="/Users/fuzzy/.claude/local/claude"
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/fuzzy/.lmstudio/bin
+# End of LM Studio CLI section
