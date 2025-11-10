@@ -50,4 +50,5 @@
 
 copy-on-select = clipboard
 shell-integration-features = title, ssh-env, sudo, cursor
-window-padding-x = 2
+window-padding-x = 8
+window-padding-y = 8
