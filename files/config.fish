@@ -17,7 +17,7 @@ set --export --global HISTCONTROL "ignoreboth"
 set --export --global EDITOR "vim"
 set --export --global WORDPRESS_WORKS_PATH "$HOME/dev" # Wordmove automagic dev path
 set --export --global BUNDLER_EDITOR "code"
-set --export --global XDG_CONFIG_HOME "$HOME/.config"git
+set --export --global XDG_CONFIG_HOME "$HOME/.config"
 
 # Activate homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
