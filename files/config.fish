@@ -19,8 +19,11 @@ set --export --global WORDPRESS_WORKS_PATH "$HOME/dev" # Wordmove automagic dev 
 set --export --global BUNDLER_EDITOR "code"
 set --export --global XDG_CONFIG_HOME "$HOME/.config"
 
-# Activate homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Activate homebrew unless in Devbox shell. I'm testing this approach to
+# avoid conflicts between Devbox and Homebrew installed packages.
+if test -z $DEVBOX_SHELL_ENABLED
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+end
 
 # Added by `rbenv init` on Mon Jan 13 22:30:21 CET 2025
 status --is-interactive; and rbenv init - --no-rehash fish | source
