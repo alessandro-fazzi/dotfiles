@@ -29,7 +29,7 @@ end
 status --is-interactive; and rbenv init - --no-rehash fish | source
 
 # Load starship
-starship init fish | source
+status --is-interactive; and starship init fish | source
 
 # Aliases
 alias l 'ls -CF'
