@@ -6,6 +6,10 @@ tap "nutcracker/tap"
 tap "rbenv/tap"
 tap "sass/sass"
 tap "shivammathur/php"
+# Asciicast to GIF converter
+brew "agg"
+# Record and share terminal sessions
+brew "asciinema"
 # Create and run Linux containers using lightweight virtual machines
 brew "container"
 # Tools and libraries to manipulate images in many formats
@@ -69,6 +73,7 @@ vscode "github.copilot-chat"
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
 vscode "gitlab.gitlab-workflow"
+vscode "inferrinizzard.prettier-sql-vscode"
 vscode "ionutvmi.spacegray-vscode"
 vscode "jetpack-io.devbox"
 vscode "kainiklas.composer-intellisense"
