@@ -20,6 +20,8 @@ brew "imagemagick"
 brew "node"
 # Ruby version manager
 brew "rbenv"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Ruby version manager
 brew "rv"
 # Creates screenshots based on terminal command output.
