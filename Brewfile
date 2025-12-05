@@ -12,6 +12,8 @@ brew "agg"
 brew "asciinema"
 # Create and run Linux containers using lightweight virtual machines
 brew "container"
+# Distributed revision control system
+brew "git"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Open-source, cross-platform JavaScript runtime environment
