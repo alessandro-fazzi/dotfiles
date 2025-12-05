@@ -30,6 +30,10 @@ brew "homeport/tap/termshot"
 cask "bruno"
 # Free and open-source web browser
 cask "chromium"
+# Anthropic's official Claude AI desktop app
+cask "claude"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # Create and run Linux containers using lightweight virtual machines
 cask "container"
 cask "font-caskaydia-mono-nerd-font"
