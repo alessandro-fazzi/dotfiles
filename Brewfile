@@ -10,8 +10,12 @@ tap "shivammathur/php"
 brew "agg"
 # Record and share terminal sessions
 brew "asciinema"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Create and run Linux containers using lightweight virtual machines
 brew "container"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
 # Distributed revision control system
 brew "git"
 # Tools and libraries to manipulate images in many formats
