@@ -3,6 +3,7 @@ tap "dart-lang/dart"
 tap "homebrew/services"
 tap "homeport/tap"
 tap "jesseduffield/lazygit"
+tap "nikitabobko/tap"
 tap "nutcracker/tap"
 tap "rbenv/tap"
 tap "sass/sass"
@@ -33,6 +34,8 @@ brew "rv"
 brew "anomalyco/tap/opencode"
 # Creates screenshots based on terminal command output.
 brew "homeport/tap/termshot"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
 # Free and open-source web browser
