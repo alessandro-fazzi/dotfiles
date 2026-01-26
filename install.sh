@@ -16,28 +16,36 @@ function link() {
     local target_file=$2
     local has_error=0
 
-    if [[ -e $target_file ]]; then
-        if [[ -L $target_file ]]; then
-            # It's a symlink - we'll overwrite it
-            local previous_target
-            previous_target=$(readlink "$target_file")
-            warn "Symlink already exists at ${target_file} pointing to ${previous_target}. Overwriting."
-            rm "$target_file"
-            if ln -s "$source_file" "$target_file"; then
-                echo "Created symlink: ${target_file} -> ${source_file}"
-            fi
-        else
-            # It's a regular file - this shouldn't happen as backup should have moved it
-            warn "${target_file} already exists as a regular file. The backup function should have moved it."
-            warn "This is an unexpected situation. Please check your files and try again."
-            has_error=1
-            handle_error "$has_error" "Linking failed due to existing file. Backup may have failed."
-            return $?
+    echo "Creating symlink: ${target_file} -> ${source_file}"
+
+    if [[ -L $target_file ]]; then
+        # It's a symlink (possibly broken)
+        local previous_target
+        previous_target=$(readlink "$target_file")
+
+        # Check if symlink already points to the correct target
+        if [[ "$previous_target" == "$source_file" ]]; then
+            echo "  ⏩ Already exists. Skipping."
+            return 0
         fi
+
+        # Symlink exists but points to wrong target
+        warn "Symlink pointed to ${previous_target}. Updating."
+        rm "$target_file"
+        if ln -s "$source_file" "$target_file"; then
+            echo "  🔗 Symlink updated."
+        fi
+    elif [[ -e $target_file ]]; then
+        # It's a regular file - this shouldn't happen as backup should have moved it
+        warn "${target_file} already exists as a regular file. The backup function should have moved it."
+        warn "This is an unexpected situation. Please check your files and try again."
+        has_error=1
+        handle_error "$has_error" "Linking failed due to existing file. Backup may have failed."
+        return $?
     else
         # No file exists - create the symlink
         if ln -s "$source_file" "$target_file"; then
-            echo "Created symlink: ${target_file} -> ${source_file}"
+            echo "  🔗 Symlink created."
         fi
     fi
 

@@ -105,32 +105,121 @@ teardown() {
   [ -L "$TEMP_HOME"/testlink ]
 }
 
-@test "link overwrites existing symlink" {
+@test "link updates symlink when pointing to wrong target" {
   source ./install.sh
 
-  # Create a target file that will be a symlink to an old location
+  # Create old and new target files
   touch "$TEMP_HOME/old_target"
-
-  # Create an initial symlink pointing to the old target
-  ln -s "$TEMP_HOME/old_target" "$TEMP_HOME/existing_link"
-
-  # Verify the initial symlink is set up correctly
-  [ -L "$TEMP_HOME/existing_link" ]
-  [ "$(readlink "$TEMP_HOME/existing_link")" = "$TEMP_HOME/old_target" ]
-
-  # Create a new target file
   touch "$TEMP_HOME/new_target"
 
-  # Run our link function to overwrite the symlink
-  run link "$TEMP_HOME/new_target" "$TEMP_HOME/existing_link"
+  # Create symlink pointing to old target
+  ln -s "$TEMP_HOME/old_target" "$TEMP_HOME/test_link"
 
-  # Check that the function's output contains our warning about overwriting
-  [[ "$output" =~ "Symlink already exists" ]]
-  [[ "$output" =~ "Overwriting" ]]
+  # Verify initial setup
+  [ -L "$TEMP_HOME/test_link" ]
+  [ "$(readlink "$TEMP_HOME/test_link")" = "$TEMP_HOME/old_target" ]
 
-  # Verify the symlink now points to the new target
-  [ -L "$TEMP_HOME/existing_link" ]
-  [ "$(readlink "$TEMP_HOME/existing_link")" = "$TEMP_HOME/new_target" ]
+  # Run link function to update to new target
+  run link "$TEMP_HOME/new_target" "$TEMP_HOME/test_link"
+
+  # Should succeed
+  [ "$status" -eq 0 ]
+
+  # Should show updating messages
+  [[ "$output" =~ "Updating" ]]
+  [[ "$output" =~ "Symlink updated" ]]
+
+  # Symlink should now point to new target
+  [ -L "$TEMP_HOME/test_link" ]
+  [ "$(readlink "$TEMP_HOME/test_link")" = "$TEMP_HOME/new_target" ]
+}
+
+@test "link skips symlink when already pointing to correct target" {
+  source ./install.sh
+
+  # Create source and target files
+  touch "$TEMP_HOME/source_file"
+
+  # Create symlink pointing to correct target
+  ln -s "$TEMP_HOME/source_file" "$TEMP_HOME/test_link"
+
+  # Verify initial setup
+  [ -L "$TEMP_HOME/test_link" ]
+  [ "$(readlink "$TEMP_HOME/test_link")" = "$TEMP_HOME/source_file" ]
+
+  # Run link function
+  run link "$TEMP_HOME/source_file" "$TEMP_HOME/test_link"
+
+  # Should succeed
+  [ "$status" -eq 0 ]
+
+  # Should show skip message
+  [[ "$output" =~ Already\ exists\.\ Skipping ]]
+
+  # Should NOT show "Updating" or warning
+  [[ ! "$output" =~ Updating ]]
+  [[ ! "$output" =~ \*\*\* ]]
+
+  # Symlink should still point to correct target
+  [ "$(readlink "$TEMP_HOME/test_link")" = "$TEMP_HOME/source_file" ]
+}
+
+@test "link shows correct message when creating new symlink" {
+  source ./install.sh
+
+  # Create source file
+  touch "$TEMP_HOME/source_file"
+
+  # Ensure target doesn't exist
+  [ ! -e "$TEMP_HOME/test_link" ]
+
+  # Run link function
+  run link "$TEMP_HOME/source_file" "$TEMP_HOME/test_link"
+
+  # Should succeed
+  [ "$status" -eq 0 ]
+
+  # Should show creation message
+  [[ "$output" =~ "Creating symlink" ]]
+  [[ "$output" =~ "Symlink created" ]]
+
+  # Should NOT show skip or update messages
+  [[ ! "$output" =~ "Skipping" ]]
+  [[ ! "$output" =~ "Updating" ]]
+
+  # Symlink should be created
+  [ -L "$TEMP_HOME/test_link" ]
+  [ "$(readlink "$TEMP_HOME/test_link")" = "$TEMP_HOME/source_file" ]
+}
+
+@test "link updates broken symlink (pointing to non-existent target)" {
+  source ./install.sh
+
+  # Create new target file
+  touch "$TEMP_HOME/new_target"
+
+  # Create a broken symlink (pointing to non-existent file)
+  ln -s "$TEMP_HOME/non_existent" "$TEMP_HOME/test_link"
+
+  # Verify initial setup - symlink exists but target doesn't
+  [ -L "$TEMP_HOME/test_link" ]
+  [ ! -e "$TEMP_HOME/test_link" ]  # -e returns false for broken symlinks
+  [ "$(readlink "$TEMP_HOME/test_link")" = "$TEMP_HOME/non_existent" ]
+
+  # Run link function to update to new target
+  run link "$TEMP_HOME/new_target" "$TEMP_HOME/test_link"
+
+  # Should succeed
+  [ "$status" -eq 0 ]
+
+  # Should show updating messages
+  [[ "$output" =~ Updating ]]
+  [[ "$output" =~ "Symlink updated" ]]
+
+  # Symlink should now point to new target and not be broken
+  [ -L "$TEMP_HOME/test_link" ]
+  [ -e "$TEMP_HOME/test_link" ]  # Should now exist since target exists
+  [ "$(readlink "$TEMP_HOME/test_link")" = "$TEMP_HOME/new_target" ]
 }
 
 @test "link returns error for existing regular files" {
