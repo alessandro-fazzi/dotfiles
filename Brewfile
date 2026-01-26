@@ -1,3 +1,4 @@
+tap "anomalyco/tap"
 tap "dart-lang/dart"
 tap "homebrew/services"
 tap "homeport/tap"
@@ -28,6 +29,8 @@ brew "rbenv"
 brew "ripgrep"
 # Ruby version manager
 brew "rv"
+# The AI coding agent built for the terminal.
+brew "anomalyco/tap/opencode"
 # Creates screenshots based on terminal command output.
 brew "homeport/tap/termshot"
 # Open source IDE for exploring and testing APIs
