@@ -13,12 +13,12 @@ brew "asciinema"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Create and run Linux containers using lightweight virtual machines
-brew "container"
+brew "container", link: false
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Distributed revision control system
 brew "git"
-# Tools and libraries to manipulate images in many formats
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
