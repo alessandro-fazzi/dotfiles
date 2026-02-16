@@ -30,8 +30,6 @@ brew "rbenv"
 brew "ripgrep"
 # Ruby version manager
 brew "rv"
-# The AI coding agent built for the terminal.
-brew "anomalyco/tap/opencode"
 # Creates screenshots based on terminal command output.
 brew "homeport/tap/termshot"
 # AeroSpace is an i3-like tiling window manager for macOS
@@ -86,7 +84,6 @@ vscode "dotjoshjohnson.xml"
 vscode "eamodio.gitlens"
 vscode "exiasr.hadolint"
 vscode "felipecaputo.git-project-manager"
-vscode "github.copilot"
 vscode "github.copilot-chat"
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
