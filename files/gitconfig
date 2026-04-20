@@ -79,8 +79,8 @@
 	st = status
 	pf = push --force-with-lease
 	rmignored = "!git ls-files -o -i --exclude-standard | xargs git rm --cached"
-	l = log --oneline --graph -10 HEAD
-	ls = log --oneline --decorate --graph --branches --remotes -20
+	l = log --graph -10 HEAD --pretty=one-line-with-date
+	ls = log --graph --branches --remotes -20 --pretty=one-line-with-date
 	reco = commit --amend --no-edit
 	recore = commit --amend
 	gone = !git branch -vv | grep ': gone]' | awk '{print $1}'
@@ -104,6 +104,12 @@
 	side-by-side = true
 	theme = Monokai Extended
 	dark = true
+
+[pretty]
+	one-line-with-date = tformat:%C(auto)%h%d %s %C(dim)%ad%C(reset)
+
+[log]
+	date = short
 
 [merge]
 	# conflictstyle = zdiff3
