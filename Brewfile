@@ -1,6 +1,5 @@
 tap "anomalyco/tap"
 tap "dart-lang/dart"
-tap "homebrew/services"
 tap "homeport/tap"
 tap "jesseduffield/lazygit"
 tap "nikitabobko/tap"
@@ -15,13 +14,19 @@ brew "asciinema"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Create and run Linux containers using lightweight virtual machines
-brew "container", link: false
+brew "container"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+# Command-line fuzzy finder written in Go
+brew "fzf"
 # Distributed revision control system
 brew "git"
 # Tools and libraries to manipulate images in select formats
 brew "imagemagick"
+# Portable Foreign Function Interface library
+brew "libffi"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # Ruby version manager
@@ -30,6 +35,18 @@ brew "rbenv"
 brew "ripgrep"
 # Ruby version manager
 brew "rv"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Autoformat shell script source code
+brew "shfmt"
+# User interface to the TELNET protocol
+brew "telnet"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Malware identification and classification tool
+brew "yara"
+# General-purpose lossless data-compression library
+brew "zlib"
 # Creates screenshots based on terminal command output.
 brew "homeport/tap/termshot"
 # AeroSpace is an i3-like tiling window manager for macOS
@@ -62,8 +79,6 @@ cask "orbstack"
 cask "stats"
 # Free and open-source OpenVPN client
 cask "tunnelblick"
-# Multiplayer code editor
-cask "zed"
 vscode "adamwalzer.scss-lint"
 vscode "aliariff.slim-lint"
 vscode "anthropic.claude-code"
@@ -95,6 +110,7 @@ vscode "kainiklas.composer-intellisense"
 vscode "karunamurti.haml"
 vscode "koichisasada.vscode-rdbg"
 vscode "l13rary.l13-diff"
+vscode "mads-hartmann.bash-ide-vscode"
 vscode "marcoroth.herb-lsp"
 vscode "marcoroth.stimulus-lsp"
 vscode "mechatroner.rainbow-csv"
@@ -114,7 +130,6 @@ vscode "ms-toolsai.jupyter-renderers"
 vscode "ms-vscode-remote.remote-containers"
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
-vscode "ms-vscode.copilot-mermaid-diagram"
 vscode "ms-vscode.remote-explorer"
 vscode "ms-vscode.vscode-speech"
 vscode "ms-vscode.vscode-speech-language-pack-it-it"
