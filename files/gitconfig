@@ -59,7 +59,7 @@
 
 [commit]
 	verbose = true
-	gpgsign = false
+	gpgsign = true
 
 [rerere]
 	enabled = true
