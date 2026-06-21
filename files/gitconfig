@@ -84,12 +84,16 @@
 	reco = commit --amend --no-edit
 	recore = commit --amend
 	gone = !git branch -vv | grep ': gone]' | awk '{print $1}'
-
-	# Non ancora portato da OMF. Non sicuro che funzioni a dovere
-	# function git-clean-branches
-  #   git remote prune origin && git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
-	# end
-	# alias gcb 'git-clean-branches'
+	ontop = "!f() { \
+		remote=${1:-origin}; \
+		default=$(git symbolic-ref refs/remotes/$remote/HEAD | sed \"s@^refs/remotes/$remote/@@\"); \
+		current=$(git symbolic-ref --short HEAD); \
+		echo \"$(tput setaf 2)♻️ Updating $default and rebasing $current on top of it...$(tput sgr0)\"; \
+		git switch \"$default\" && \
+		git pull \"$remote\" && \
+		git switch \"$current\" && \
+		git rebase \"$default\"; \
+	}; f"
 
 [color "status"]
 	changed = yellow
