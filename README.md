@@ -131,7 +131,7 @@ The installer will automatically:
     - Force pushing safely with `pf` (using `--force-with-lease`)
     - Various log formats (`lcur`, `l`, `ls`) with decorations and graph visualization
     - Commit amending helpers (`reco`, `recore`)
-    - Integration with external diff tools (`difft` for difftastic)
+    - Integration with external diff tools (delta)
     - Stale branch management with `gone` alias
   - Custom color settings for status output
 * `gitignore`:
