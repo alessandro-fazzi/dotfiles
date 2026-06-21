@@ -76,12 +76,12 @@ The installer will automatically:
   - Autocorrects small typing mistakes in `cd` commands with `cdspell`
   - Appends to `bash_history` instead of overwriting it with `histappend`
   - Increased bash history size to 10,000 lines with `HISTSIZE` and `HISTFILESIZE`
-  - Includes useful shell options (`shopt`) like `autocd`, `checkwinsize` for better usability
+  - Includes useful shell options (`shopt`) like `cdspell`, `checkwinsize`, `histappend`, `dotglob` for better usability
   - Provides useful aliases for common commands
 * `config.fish`:
   - Sets locale environment variables for proper UTF-8 support
   - Activates Homebrew automatically using `/opt/homebrew/bin/brew shellenv`
-  - Initializes `rbenv` for Ruby version management without rehashing
+  - Activates `mise` for polyglot runtime management (`mise activate fish`)
   - Configures `starship` prompt for customized terminal appearance
   - Includes useful aliases for common commands:
     - File listing with various options (`l`, `ls`, `ll`, `la`, `lr`)
@@ -97,7 +97,6 @@ The installer will automatically:
     - Sets vim as default editor
     - Configures paths for WordPress development and Bundler
   - Adds PostgreSQL from Postgres.app to PATH
-  - Loads Devbox global environment
   - Integrates with OrbStack for container/VM management
 * `curlrc`:
   - Enables insecure mode for curl with `--insecure` option
@@ -129,10 +128,11 @@ The installer will automatically:
     - File tracking management (`assume`, `unassume`)
     - Shortcuts for common commands (`c`, `cm`, `st`, `ap`, `all`)
     - Force pushing safely with `pf` (using `--force-with-lease`)
-    - Various log formats (`lcur`, `l`, `ls`) with decorations and graph visualization
+    - Various log formats (`l`, `ls`) with decorations and graph visualization
     - Commit amending helpers (`reco`, `recore`)
     - Integration with external diff tools (delta)
     - Stale branch management with `gone` alias
+    - `ontop`: rebase the current branch on top of the default remote branch
   - Custom color settings for status output
 * `gitignore`:
   - Global gitignore rules for development tools and environment files
@@ -154,12 +154,10 @@ The installer will automatically:
 ### Automatic Brewfile
 
 * The Brewfile in `~/.dotfiles/Brewfile` is automatically generated and updated by a launch agent.
-* This agent runs `brew bundle dump --file=$HOME/.dotfiles/Brewfile --describe --force` daily, keeping your Homebrew package list in sync.
+* This agent runs `brew_bundle_dump.sh` daily via launchd, keeping your Homebrew package list in sync.
+* The script lives at `~/.dotfiles/brew_bundle_dump.sh` and can be executed manually at any time.
 * You can use this Brewfile to quickly set up or restore your development environment on a new machine.
 
-### TODO
-
-- devbox global
 
 ### Testing and Validation
 * `setup_tests.sh`: Installs (locally into the project folder) `bats-core` and
