@@ -90,7 +90,7 @@ The installer will automatically:
     - Shorthand for Heroku CLI (`hk`)
   - Provides helpful functions:
     - `ports` to list all listening ports
-    - `code_socks5_proxy` and `camar_socks5_proxy` for SSH tunneling
+    - SSH tunneling utils
     - `git-prune-gone` to manage stale Git branches
   - Sets environment variables:
     - Increased history size (10,000 lines)

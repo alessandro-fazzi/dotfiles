@@ -7,9 +7,7 @@
 
     <key>ProgramArguments</key>
     <array>
-      <string>/bin/bash</string>
-      <string>-c</string>
-      <string>brew bundle dump --file=$HOME/.dotfiles/Brewfile --describe --force</string>
+      <string>/Users/fuzzy/.dotfiles/brew_bundle_dump.sh</string>
     </array>
 
     <key>StartCalendarInterval</key>

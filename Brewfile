@@ -1,34 +1,53 @@
-tap "anomalyco/tap"
-tap "dart-lang/dart"
 tap "homeport/tap"
-tap "jesseduffield/lazygit"
 tap "nikitabobko/tap"
-tap "nutcracker/tap"
 tap "rbenv/tap"
-tap "sass/sass"
 tap "shivammathur/php"
 # Asciicast to GIF converter
 brew "agg"
 # Record and share terminal sessions
 brew "asciinema"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
 # Create and run Linux containers using lightweight virtual machines
 brew "container"
-# Get a file from an HTTP, HTTPS or FTP server
-brew "curl"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# GIF image/animation creator/editor
+brew "gifsicle"
 # Distributed revision control system
 brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Open-source GitLab command-line tool
+brew "glab"
+# GNU version of the tar archiving utility
+brew "gnu-tar"
+# Improved top (interactive process viewer)
+brew "htop"
 # Tools and libraries to manipulate images in select formats
 brew "imagemagick"
-# Portable Foreign Function Interface library
-brew "libffi"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
+# High-performance, asynchronous messaging library
+brew "zeromq"
+# Interactive environments for writing and running code
+brew "jupyterlab"
+# Portable Foreign Function Interface library
+brew "libffi"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
+# General-purpose scripting language
+brew "php"
 # Ruby version manager
 brew "rbenv"
 # Search tool like grep and The Silver Searcher
@@ -39,8 +58,12 @@ brew "rv"
 brew "shellcheck"
 # Autoformat shell script source code
 brew "shfmt"
+# Cross-shell prompt for astronauts
+brew "starship"
 # User interface to the TELNET protocol
 brew "telnet"
+# Image processing library
+brew "vips"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Malware identification and classification tool
@@ -48,7 +71,7 @@ brew "yara"
 # General-purpose lossless data-compression library
 brew "zlib"
 # Creates screenshots based on terminal command output.
-brew "homeport/tap/termshot"
+brew "homeport/tap/termshot", trusted: true
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace"
 # Open source IDE for exploring and testing APIs
@@ -58,7 +81,7 @@ cask "chromium"
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
-cask "claude-code"
+cask "claude-code@latest"
 # Create and run Linux containers using lightweight virtual machines
 cask "container"
 cask "font-caskaydia-mono-nerd-font"
@@ -73,6 +96,8 @@ cask "librewolf"
 cask "maccy"
 # CSV editor
 cask "modern-csv"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
 # Replacement for Docker Desktop
 cask "orbstack"
 # System monitor for the menu bar
@@ -84,22 +109,24 @@ vscode "aliariff.slim-lint"
 vscode "anthropic.claude-code"
 vscode "appland.appmap"
 vscode "bibhasdn.unique-lines"
-vscode "bierner.markdown-mermaid"
 vscode "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+vscode "brandoncc.vscode-seeing-is-believing"
 vscode "castwide.solargraph"
 vscode "chaitanyashahare.lazygit"
 vscode "crystal-lang-tools.crystal-lang"
-vscode "cssho.vscode-svgviewer"
 vscode "dbaeumer.vscode-eslint"
 vscode "dbankier.vscode-quick-select"
 vscode "deerawan.vscode-dash"
+vscode "devsense.composer-php-vscode"
+vscode "devsense.intelli-php-vscode"
+vscode "devsense.phptools-vscode"
+vscode "devsense.profiler-php-vscode"
 vscode "digitalbrainstem.javascript-ejs-support"
 vscode "docker.docker"
 vscode "dotjoshjohnson.xml"
 vscode "eamodio.gitlens"
 vscode "exiasr.hadolint"
 vscode "felipecaputo.git-project-manager"
-vscode "github.copilot-chat"
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
 vscode "gitlab.gitlab-workflow"
@@ -134,15 +161,12 @@ vscode "ms-vscode.remote-explorer"
 vscode "ms-vscode.vscode-speech"
 vscode "ms-vscode.vscode-speech-language-pack-it-it"
 vscode "ms-vsliveshare.vsliveshare"
-vscode "ms-vsliveshare.vsliveshare-pack"
 vscode "mushan.vscode-paste-image"
-vscode "neilbrayfield.php-docblocker"
 vscode "oderwat.indent-rainbow"
 vscode "pavlitsky.yard"
 vscode "pomdtr.excalidraw-editor"
 vscode "qezhu.gitlink"
 vscode "redhat.vscode-yaml"
-vscode "robinbentley.sass-indented"
 vscode "rogalmic.bash-debug"
 vscode "sadesyllas.vscode-workspace-switcher"
 vscode "shopify.ruby-extensions-pack"
@@ -160,12 +184,8 @@ vscode "stylelint.vscode-stylelint"
 vscode "timonwong.shellcheck"
 vscode "tomoyukim.vscode-mermaid-editor"
 vscode "trond-snekvik.simple-rst"
-vscode "vayan.haml"
 vscode "vittorioromeo.expand-selection-to-scope"
 vscode "vscode-icons-team.vscode-icons"
 vscode "weijunyu.vscode-json-path"
-vscode "xdebug.php-debug"
-vscode "xdebug.php-pack"
 vscode "yaruson.ascii-unicode-escape"
 vscode "yzhang.markdown-all-in-one"
-vscode "zobo.php-intellisense"
