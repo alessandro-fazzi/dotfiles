@@ -19,14 +19,8 @@ set --export --global WORDPRESS_WORKS_PATH "$HOME/dev" # Wordmove automagic dev 
 set --export --global BUNDLER_EDITOR "code"
 set --export --global XDG_CONFIG_HOME "$HOME/.config"
 
-# Activate homebrew unless in Devbox shell. I'm testing this approach to
-# avoid conflicts between Devbox and Homebrew installed packages.
-if test -z $DEVBOX_SHELL_ENABLED
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-end
-
-# Added by `rbenv init` on Mon Jan 13 22:30:21 CET 2025
-status --is-interactive; and rbenv init - --no-rehash fish | source
+# Activate homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Load starship
 status --is-interactive; and starship init fish | source
@@ -97,9 +91,6 @@ end
 # postgres.app executables
 fish_add_path --path /Applications/Postgres.app/Contents/Versions/latest/bin
 
-# Devbox global
-devbox global shellenv --init-hook | source
-
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init.fish 2>/dev/null || :
@@ -107,3 +98,6 @@ source ~/.orbstack/shell/init.fish 2>/dev/null || :
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /Users/fuzzy/.lmstudio/bin
 # End of LM Studio CLI section
+
+# Mise
+mise activate fish | source
