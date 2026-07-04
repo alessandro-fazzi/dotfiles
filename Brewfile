@@ -13,7 +13,7 @@ brew "bat"
 # Cloudflare Tunnel client (formerly Argo Tunnel)
 brew "cloudflared"
 # Create and run Linux containers using lightweight virtual machines
-brew "container"
+brew "container", link: false
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
 # User-friendly command-line shell for UNIX-like operating systems
@@ -32,28 +32,28 @@ brew "git-delta"
 brew "glab"
 # GNU version of the tar archiving utility
 brew "gnu-tar"
+# Smarter Dockerfile linter to validate best practices
+brew "hadolint"
 # Improved top (interactive process viewer)
 brew "htop"
 # Tools and libraries to manipulate images in select formats
 brew "imagemagick"
+# Portable Foreign Function Interface library
+brew "libffi"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # High-performance, asynchronous messaging library
 brew "zeromq"
 # Interactive environments for writing and running code
 brew "jupyterlab"
-# Portable Foreign Function Interface library
-brew "libffi"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# OpenBSD freely-licensed SSH connectivity tools
+brew "openssh"
 # General-purpose scripting language
 brew "php"
-# Ruby version manager
-brew "rbenv"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Ruby version manager
-brew "rv"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Autoformat shell script source code
@@ -70,8 +70,6 @@ brew "watch"
 brew "yara"
 # General-purpose lossless data-compression library
 brew "zlib"
-# Creates screenshots based on terminal command output.
-brew "homeport/tap/termshot", trusted: true
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace"
 # Open source IDE for exploring and testing APIs
@@ -104,6 +102,8 @@ cask "orbstack"
 cask "stats"
 # Free and open-source OpenVPN client
 cask "tunnelblick"
+# Multiplayer code editor
+cask "zed"
 vscode "adamwalzer.scss-lint"
 vscode "aliariff.slim-lint"
 vscode "anthropic.claude-code"
@@ -112,12 +112,10 @@ vscode "bibhasdn.unique-lines"
 vscode "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
 vscode "brandoncc.vscode-seeing-is-believing"
 vscode "castwide.solargraph"
-vscode "chaitanyashahare.lazygit"
 vscode "crystal-lang-tools.crystal-lang"
 vscode "dbaeumer.vscode-eslint"
 vscode "dbankier.vscode-quick-select"
 vscode "deerawan.vscode-dash"
-vscode "devsense.composer-php-vscode"
 vscode "devsense.intelli-php-vscode"
 vscode "devsense.phptools-vscode"
 vscode "devsense.profiler-php-vscode"
@@ -132,7 +130,6 @@ vscode "github.vscode-pull-request-github"
 vscode "gitlab.gitlab-workflow"
 vscode "inferrinizzard.prettier-sql-vscode"
 vscode "ionutvmi.spacegray-vscode"
-vscode "jetpack-io.devbox"
 vscode "kainiklas.composer-intellisense"
 vscode "karunamurti.haml"
 vscode "koichisasada.vscode-rdbg"
@@ -161,9 +158,7 @@ vscode "ms-vscode.remote-explorer"
 vscode "ms-vscode.vscode-speech"
 vscode "ms-vscode.vscode-speech-language-pack-it-it"
 vscode "ms-vsliveshare.vsliveshare"
-vscode "mushan.vscode-paste-image"
 vscode "oderwat.indent-rainbow"
-vscode "pavlitsky.yard"
 vscode "pomdtr.excalidraw-editor"
 vscode "qezhu.gitlink"
 vscode "redhat.vscode-yaml"
@@ -182,7 +177,6 @@ vscode "streetsidesoftware.code-spell-checker-italian"
 vscode "stuart.unique-window-colors"
 vscode "stylelint.vscode-stylelint"
 vscode "timonwong.shellcheck"
-vscode "tomoyukim.vscode-mermaid-editor"
 vscode "trond-snekvik.simple-rst"
 vscode "vittorioromeo.expand-selection-to-scope"
 vscode "vscode-icons-team.vscode-icons"
