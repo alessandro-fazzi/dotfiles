@@ -52,6 +52,15 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 on-mode-changed = []
 
+# Callback that runs when a new window is detected.
+# See: https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
+on-window-detected = [
+    {
+      if.app-id = 'dev.zed.Zed', if.window-title-regex-substring = 'Settings',
+      run = ['layout floating']
+    },
+]
+
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
@@ -69,7 +78,7 @@ on-mode-changed = []
     inner.horizontal = 8
     inner.vertical =   8
     outer.left =       8
-    outer.bottom =     8 
+    outer.bottom =     8
     outer.top =        8
     outer.right =      8
 
