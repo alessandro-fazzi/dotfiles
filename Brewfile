@@ -1,7 +1,6 @@
-tap "homeport/tap"
 tap "nikitabobko/tap"
-tap "rbenv/tap"
 tap "shivammathur/php"
+tap "shrwnsan/tap"
 # Asciicast to GIF converter
 brew "agg"
 # Record and share terminal sessions
@@ -62,6 +61,8 @@ brew "shfmt"
 brew "starship"
 # User interface to the TELNET protocol
 brew "telnet"
+# Creates screenshots based on terminal command output
+brew "termshot"
 # Image processing library
 brew "vips"
 # Executes a program periodically, showing output fullscreen
