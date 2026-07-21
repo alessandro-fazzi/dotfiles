@@ -90,6 +90,7 @@
 	ifix = "!fish -c git-ifix"
 	ireword = "!fish -c git-ireword"
 	isplit = "!fish -c git-isplit"
+	prune-gone = "!fish -c git-prune-gone"
 
 [color "status"]
 	changed = yellow
