@@ -56,7 +56,11 @@ on-mode-changed = []
 # See: https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
 on-window-detected = [
     {
-      if.app-id = 'dev.zed.Zed', if.window-title-regex-substring = 'Settings',
+      if.app-id = 'dev.zed.Zed', if.window-title-regex-substring = '^Zed — Settings$',
+      run = ['layout floating']
+    },
+    {
+      if.window-title-regex-substring = '^Picture-in-Picture$',
       run = ['layout floating']
     },
 ]
