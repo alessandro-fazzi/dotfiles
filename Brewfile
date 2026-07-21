@@ -1,3 +1,4 @@
+tap "gostonx/tap"
 tap "nikitabobko/tap"
 tap "shivammathur/php"
 tap "shrwnsan/tap"
@@ -9,6 +10,8 @@ brew "asciinema"
 brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
 # Cloudflare Tunnel client (formerly Argo Tunnel)
 brew "cloudflared"
 # Create and run Linux containers using lightweight virtual machines
@@ -71,17 +74,13 @@ brew "watch"
 brew "yara"
 # General-purpose lossless data-compression library
 brew "zlib"
-# AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace"
-# Open source IDE for exploring and testing APIs
-cask "bruno"
+cask "aerospace"
 # Free and open-source web browser
 cask "chromium"
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
 cask "claude-code@latest"
-# Create and run Linux containers using lightweight virtual machines
 cask "container"
 cask "font-caskaydia-mono-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
@@ -103,6 +102,7 @@ cask "orbstack"
 cask "stats"
 # Free and open-source OpenVPN client
 cask "tunnelblick"
+cask "uninstally"
 # Multiplayer code editor
 cask "zed"
 vscode "adamwalzer.scss-lint"
