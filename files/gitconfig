@@ -84,18 +84,9 @@
 	reco = commit --amend --no-edit
 	recore = commit --amend
 	gone = !git branch -vv | grep ': gone]' | awk '{print $1}'
-	ontop = "!f() { \
-		remote=${1:-origin}; \
-		default=$(git symbolic-ref refs/remotes/$remote/HEAD | sed \"s@^refs/remotes/$remote/@@\"); \
-		current=$(git symbolic-ref --short HEAD); \
-		echo \"$(tput setaf 2)♻️ Updating $default and rebasing $current on top of it...$(tput sgr0)\"; \
-		git switch \"$default\" && \
-		git pull \"$remote\" && \
-		git switch \"$current\" && \
-		git rebase \"$default\"; \
-	}; f"
 	# `fish -c` is needed because git runs "!"-aliases through the system shell,
 	# not fish, so autoloaded fish functions aren't otherwise visible here.
+	ontop = "!fish -c git-ontop"
 	ifix = "!fish -c git-ifix"
 	ireword = "!fish -c git-ireword"
 	isplit = "!fish -c git-isplit"
