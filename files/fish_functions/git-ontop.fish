@@ -7,7 +7,7 @@ function git-ontop -d "Update the parent branch (if it has a remote) and rebase 
     set -l parent (git-parent-branch $remote)
     set -l current (git symbolic-ref --short HEAD)
 
-    if git rev-parse --abbrev-ref --symbolic-full-name "$parent@{upstream}" >/dev/null 2>&1
+    if git rev-parse --abbrev-ref --symbolic-full-name "$parent@{upstream}" &>/dev/null
         echo (set_color green)"♻️ Updating $parent and rebasing $current on top of it..."(set_color normal)
         git switch "$parent" \
             && git pull "$remote" \
