@@ -5,6 +5,10 @@ function git-isplit -d "Interactively pick a commit via fzf and split it"
     end
 
     set -l parent (git-parent-branch $remote)
+    if test $status -ne 0
+        echo "🚫 No parent branch selected."
+        return 1
+    end
     set -l selected (git log --oneline --no-decorate $parent..HEAD | fzf)
     set -l commit (string split --max 1 ' ' $selected)[1]
 

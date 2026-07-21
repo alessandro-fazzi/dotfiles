@@ -5,6 +5,10 @@ function git-ontop -d "Update the parent branch (if it has a remote) and rebase 
     end
 
     set -l parent (git-parent-branch $remote)
+    if test $status -ne 0
+        echo "🚫 No parent branch selected."
+        return 1
+    end
     set -l current (git symbolic-ref --short HEAD)
 
     if git rev-parse --abbrev-ref --symbolic-full-name "$parent@{upstream}" &>/dev/null

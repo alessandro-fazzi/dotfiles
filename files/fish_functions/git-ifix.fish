@@ -5,6 +5,10 @@ function git-ifix -d "Interactively pick a commit via fzf and fixup staged chang
     end
 
     set -l parent (git-parent-branch $remote)
+    if test $status -ne 0
+        echo "🚫 No parent branch selected."
+        return 1
+    end
     set -l selected (git log --oneline --no-decorate $parent..HEAD | fzf)
     set -l parts (string split --max 1 ' ' $selected)
     set -l commit $parts[1]
