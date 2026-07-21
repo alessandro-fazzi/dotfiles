@@ -240,6 +240,23 @@ teardown() {
   [[ "$output" =~ "unexpected situation" ]]
 }
 
+@test "backup and link handle directory targets" {
+  source ./install.sh
+
+  backup_dir
+
+  local target_dir="$TEMP_HOME/.config/fish/functions"
+  mkdir -p "$target_dir"
+  touch "$target_dir/existing.fish"
+
+  backup "$TEMP_HOME"
+  link_files "$TEMP_HOME"
+
+  [ -d "$BACKUP_DIR/fish_functions" ]
+  [ -f "$BACKUP_DIR/fish_functions/existing.fish" ]
+  [ -L "$target_dir" ]
+}
+
 @test "handle_error handles errors correctly" {
   source ./install.sh
 

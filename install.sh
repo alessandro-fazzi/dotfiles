@@ -105,10 +105,10 @@ function backup(){
         local target_file="${base_dir}/${dest_path}"
 
         # Skip if file doesn't exist or is already a symlink
-        [[ -f $target_file && ! -L $target_file ]] || continue
+        [[ -e $target_file && ! -L $target_file ]] || continue
 
         local backup_file="${BACKUP_DIR}/${source_file}"
-        if [[ -f $backup_file ]]; then
+        if [[ -e $backup_file ]]; then
             warn "${backup_file} already exists. Skipping."
             has_error=1
         else
