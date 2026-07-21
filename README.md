@@ -91,13 +91,13 @@ The installer will automatically:
   - Provides helpful functions:
     - `ports` to list all listening ports
     - SSH tunneling utils
-    - `git-prune-gone` to manage stale Git branches
   - Sets environment variables:
     - Increased history size (10,000 lines)
     - Sets vim as default editor
     - Configures paths for WordPress development and Bundler
   - Adds PostgreSQL from Postgres.app to PATH
   - Integrates with OrbStack for container/VM management
+* `fish functions` (`~/.config/fish/functions/`)
 * `curlrc`:
   - Enables insecure mode for curl with `--insecure` option
   - Configures default behavior for curl commands

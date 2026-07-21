@@ -94,6 +94,11 @@
 		git switch \"$current\" && \
 		git rebase \"$default\"; \
 	}; f"
+	# `fish -c` is needed because git runs "!"-aliases through the system shell,
+	# not fish, so autoloaded fish functions aren't otherwise visible here.
+	ifix = "!fish -c git-ifix"
+	ireword = "!fish -c git-ireword"
+	isplit = "!fish -c git-isplit"
 
 [color "status"]
 	changed = yellow
@@ -117,5 +122,6 @@
 
 [merge]
 	# conflictstyle = zdiff3
+
 [http]
 	sslVerify = true
