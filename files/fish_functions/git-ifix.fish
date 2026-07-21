@@ -4,8 +4,8 @@ function git-ifix -d "Interactively pick a commit via fzf and fixup staged chang
         set remote $argv[1]
     end
 
-    set -l default (git symbolic-ref refs/remotes/$remote/HEAD | sed "s@^refs/remotes/$remote/@@")
-    set -l selected (git log --oneline --no-decorate (git merge-base $default master)..HEAD | fzf)
+    set -l parent (git-parent-branch $remote)
+    set -l selected (git log --oneline --no-decorate $parent..HEAD | fzf)
     set -l commit (echo $selected | cut -d' ' -f1)
     set -l message (echo $selected | cut -d' ' -f2-)
 
