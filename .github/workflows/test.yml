@@ -16,6 +16,8 @@ jobs:
 
       - name: Set up environment
         run: |
+          sudo apt-get update
+          sudo apt-get install -y fish
           chmod +x ./setup_tests.sh ./test.sh
           ./setup_tests.sh
 
